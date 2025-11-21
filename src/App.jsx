@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import LoadingScreen from './components/LoadingScreen'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -11,6 +11,25 @@ import Footer from './components/Footer'
 import DetailUnit from './components/DetailUnit'
 
 function HomePage() {
+  const location = useLocation()
+
+  useEffect(() => {
+    // Handle hash scrolling when arriving from other pages
+    if (location.hash) {
+      const sectionId = location.hash.substring(1) // Remove the '#'
+      const section = document.getElementById(sectionId)
+      if (section) {
+        // Small delay to ensure DOM is fully rendered
+        setTimeout(() => {
+          section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          })
+        }, 100)
+      }
+    }
+  }, [location])
+
   return (
     <>
       <Navbar />
@@ -51,4 +70,3 @@ function App() {
 }
 
 export default App
-

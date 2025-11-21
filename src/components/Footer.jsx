@@ -37,7 +37,6 @@ function Footer() {
             <ul className="space-y-2">
               <li><button onClick={() => handleLinkClick('home')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">Home</button></li>
               <li><button onClick={() => handleLinkClick('about')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">About</button></li>
-              <li><button onClick={() => handleLinkClick('features')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">Features</button></li>
               <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">Price List</button></li>
               <li><button onClick={() => handleLinkClick('contact')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">Contact</button></li>
             </ul>
