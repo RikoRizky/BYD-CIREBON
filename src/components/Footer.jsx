@@ -1,6 +1,27 @@
 import React from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 function Footer() {
+  const location = useLocation()
+  const navigate = useNavigate()
+  const isDetailPage = location.pathname.startsWith('/detail')
+
+  const handleLinkClick = (sectionId) => {
+    if (isDetailPage) {
+      // Navigate to home page with section hash
+      navigate(`/#${sectionId}`)
+    } else {
+      // Scroll to section on current page
+      const section = document.getElementById(sectionId)
+      if (section) {
+        section.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }
+    }
+  }
+
   return (
     <footer className="bg-black text-white py-12 px-6" style={{ position: 'relative', zIndex: 30 }}>
       <div className="max-w-7xl mx-auto">
@@ -14,23 +35,23 @@ function Footer() {
           <div className="footer-section">
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#home" className="quick-link text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
-              <li><a href="#about" className="quick-link text-gray-400 hover:text-white transition-colors duration-300">About</a></li>
-              <li><a href="#features" className="quick-link text-gray-400 hover:text-white transition-colors duration-300">Features</a></li>
-              <li><a href="#pricelist" className="quick-link text-gray-400 hover:text-white transition-colors duration-300">Price List</a></li>
-              <li><a href="#contact" className="quick-link text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+              <li><button onClick={() => handleLinkClick('home')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">Home</button></li>
+              <li><button onClick={() => handleLinkClick('about')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">About</button></li>
+              <li><button onClick={() => handleLinkClick('features')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">Features</button></li>
+              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">Price List</button></li>
+              <li><button onClick={() => handleLinkClick('contact')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">Contact</button></li>
             </ul>
           </div>
           <div className="footer-section">
             <h3 className="text-lg font-bold mb-4">Products</h3>
             <ul className="space-y-2">
-              <li><a href="#pricelist" className="quick-link text-gray-400 hover:text-white transition-colors duration-300">ATTO 1</a></li>
-              <li><a href="#pricelist" className="quick-link text-gray-400 hover:text-white transition-colors duration-300">ATTO 3</a></li>
-              <li><a href="#pricelist" className="quick-link text-gray-400 hover:text-white transition-colors duration-300">DOLPHIN</a></li>
-              <li><a href="#pricelist" className="quick-link text-gray-400 hover:text-white transition-colors duration-300">M6</a></li>
-              <li><a href="#pricelist" className="quick-link text-gray-400 hover:text-white transition-colors duration-300">SEAL</a></li>
-              <li><a href="#pricelist" className="quick-link text-gray-400 hover:text-white transition-colors duration-300">SEALION 7</a></li>
-              <li><a href="#pricelist" className="quick-link text-gray-400 hover:text-white transition-colors duration-300">DENZA D9</a></li>
+              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">ATTO 1</button></li>
+              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">ATTO 3</button></li>
+              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">DOLPHIN</button></li>
+              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">M6</button></li>
+              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">SEAL</button></li>
+              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">SEALION 7</button></li>
+              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">DENZA D9</button></li>
             </ul>
           </div>
           <div className="footer-section">
