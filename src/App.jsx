@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import PriceList from './components/PriceList'
 import Features from './components/Features'
+import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import DetailUnit from './components/DetailUnit'
@@ -38,6 +39,7 @@ function HomePage() {
         <About />
         <PriceList />
         <Features />
+        <Testimonials />
         <Contact />
         <div className="footer-gradient-line"></div>
         <Footer />
