@@ -1,0 +1,6 @@
+- [x] Ubah width pada .text::before menjadi 100% agar garis bawah mengikuti panjang teks "BYD - Kota Cirebon"
+- [x] Tambahkan display: inline-block pada .place-box agar lebar box menyesuaikan konten
+- [x] Pastikan style responsif untuk mobile dan desktop
+- [x] Verifikasi tampilan setelah perubahan
+- [x] Sesuaikan bagian dalam kartu (desc dan cta) agar fleksibel mengikuti konten
+- [x] Sesuaikan garis kuning di bawah judul konten agar panjangnya mengikuti tulisan dan fleksibel mobile/desktop

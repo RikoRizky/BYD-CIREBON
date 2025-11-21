@@ -1,0 +1,54 @@
+import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LoadingScreen from './components/LoadingScreen'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import About from './components/About'
+import PriceList from './components/PriceList'
+import Features from './components/Features'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
+import DetailUnit from './components/DetailUnit'
+
+function HomePage() {
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <div className="sections-container">
+        <About />
+        <PriceList />
+        <Features />
+        <Contact />
+        <div className="footer-gradient-line"></div>
+        <Footer />
+      </div>
+    </>
+  )
+}
+
+function App() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  return (
+    <BrowserRouter>
+      {isLoading && <LoadingScreen />}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/detail/:carId" element={<DetailUnit />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+export default App
+
