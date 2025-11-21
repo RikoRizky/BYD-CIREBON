@@ -158,17 +158,17 @@ function About() {
               <div className="flex items-center gap-4 rounded-3xl border border-white/10 bg-white/5 px-6 py-4 shadow-lg shadow-black/40">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-black/50 border border-white/10">
                   <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#ecad29]">
-                    <path
-                      d="M3 5v14a2 2 0 0 0 2 2h5v-6H7v-4h3V7.5C10 5 11.5 3 14.5 3c1.2 0 2.2.1 2.2.1v3.1h-1.8c-1.4 0-1.7.7-1.7 1.6V11h3.4l-.5 4h-2.9v6h4.8a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2Z"
-                      fill="currentColor"
-                      opacity="0.2"
-                    />
-                    <path
-                      d="M4 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4v-4h2.8l.7-6H15V7.6c0-.5.2-.9 1-.9H19V2.4S17.7 2 16.3 2C12.9 2 11 3.8 11 7v2H9v6h2v4H5a1 1 0 0 1-1-1Z"
-                      stroke="#ecad29"
-                      strokeWidth="1.2"
-                      fill="none"
-                    />
+                      <path
+                          d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.25-2.25a.998.998 0 0 1 1.01-.25c1.07.35 2.19.56 3.33.64a1 1 0 0 1 1 .99V20a1 1 0 0 1-1 1C10.59 21 3 13.41 3 4a1 1 0 0 1 1-1h3.49a1 1 0 0 1 .99 1c.08 1.14.29 2.26.64 3.33a.998.998 0 0 1-.25 1.01l-2.25 2.25z"
+                          fill="currentColor"
+                          opacity="0.2"
+                      />
+                      <path
+                          d="M7 10.79a15.053 15.053 0 0 0 6.59 6.59l2.25-2.25c.29-.29.62-.42 1.01-.25a12.003 12.003 0 0 1 3.33.64V20c-7.59 0-14-6.41-14-14V4h3.49c.39 0 .72.13 1.01.25l2.25 2.25z"
+                          stroke="#ecad29"
+                          strokeWidth="1.2"
+                          fill="none"
+                      />
                   </svg>
                 </div>
                 <div>
