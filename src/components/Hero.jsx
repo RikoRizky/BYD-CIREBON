@@ -13,6 +13,7 @@ function Hero() {
   const coverTimeoutRef = useRef(null)
   const resizeTimeoutRef = useRef(null)
   const isCancelledRef = useRef(false)
+  const prevWidthRef = useRef(window.innerWidth)
 
   useEffect(() => {
     isCancelledRef.current = false
@@ -329,7 +330,12 @@ function Hero() {
 
     const resizeListener = () => {
       clearTimeout(resizeTimeoutRef.current)
-      resizeTimeoutRef.current = setTimeout(handleResize, 250)
+      resizeTimeoutRef.current = setTimeout(() => {
+        if (window.innerWidth !== prevWidthRef.current) {
+          prevWidthRef.current = window.innerWidth
+          handleResize()
+        }
+      }, 250)
     }
     window.addEventListener('resize', resizeListener)
 
