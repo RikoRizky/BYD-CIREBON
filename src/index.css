@@ -15,6 +15,9 @@ body {
   caret-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Prevent overscroll on iOS Safari */
+  overscroll-behavior: none;
+  -webkit-overscroll-behavior: none;
 }
 
 @media (max-width: 768px) {
@@ -566,6 +569,12 @@ nav .nav-links > .active:after {
   height: 4px;
   background: linear-gradient(90deg, #ecad29 0%, #ff6b35 25%, #f7931e 50%, #8b5cf6 75%, #a855f7 100%);
   box-shadow: 0 2px 8px rgba(236, 173, 41, 0.3);
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 /* Footer Section Centering */
@@ -637,6 +646,9 @@ nav .nav-links > .active:after {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  /* Prevent overscroll on iOS Safari */
+  overscroll-behavior-y: contain;
+  -webkit-overscroll-behavior-y: contain;
 }
 
 /* Premium Typography */
