@@ -186,7 +186,7 @@ function About() {
                   alt="Dealer Resmi BYD Cirebon"
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    e.target.src = '/images/BYDATTO1.jpg'
+                    e.target.src = '/images/about.jpg'
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/40" />
