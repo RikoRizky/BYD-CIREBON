@@ -56,7 +56,7 @@ function PriceList() {
             return (
               <div
                 key={index}
-                className={`rounded-3xl overflow-hidden group border border-white/10 bg-gradient-to-b from-white/5 via-black/40 to-black/60 backdrop-blur-lg shadow-[0_20px_45px_rgba(0,0,0,0.45)] transition-all duration-500 hover:-translate-y-2 hover:border-white/20 ${
+                className={`rounded-3xl overflow-hidden group border border-white/10 bg-gradient-to-b from-white/5 via-black/40 to-black/60 backdrop-blur-lg shadow-[0_20px_45px_rgba(0,0,0,0.45)] transition-all duration-500 hover:-translate-y-2 hover:border-[#ecad29]/80 hover:shadow-[0_25px_55px_rgba(236,173,41,0.35)] ${
                   car.fullWidth ? 'md:col-span-2 lg:col-span-1' : ''
                 }`}
               >

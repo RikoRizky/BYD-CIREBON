@@ -195,7 +195,7 @@ function About() {
 
             <div className="mt-8 grid gap-4 md:grid-cols-3 w-full max-w-xl lg:max-w-none">
               {highlightCards.map((item) => (
-                <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 shadow-lg shadow-black/40">
+                <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 shadow-lg shadow-black/40 hover:border-[#ecad29]/80 hover:shadow-[0_25px_55px_rgba(236,173,41,0.35)] transition-all duration-300">
                   <div className="text-2xl mb-3">{item.icon}</div>
                   <h4 className="text-sm font-semibold">{item.title}</h4>
                   <p className="text-xs text-gray-400 mt-1">{item.subtitle}</p>
@@ -234,10 +234,10 @@ function About() {
 
             <div className="hidden lg:block mb-10 space-y-6">
               {experienceHighlights.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-3xl border border-white/10 bg-gradient-to-r from-black/40 to-black/10 p-5 shadow-lg shadow-black/30"
-                >
+            <div
+              key={item.title}
+              className="rounded-3xl border border-white/10 bg-gradient-to-r from-black/40 to-black/10 p-5 shadow-lg shadow-black/30 hover:border-[#ecad29]/80 hover:shadow-[0_25px_55px_rgba(236,173,41,0.35)] transition-all duration-300"
+            >
                   <p className="text-sm font-semibold tracking-wide text-white">{item.title}</p>
                   <p className="text-sm text-gray-400 mt-1">{item.description}</p>
                 </div>
