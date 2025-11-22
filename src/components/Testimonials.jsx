@@ -2,28 +2,31 @@ import React from 'react'
 
 function Testimonials() {
   const testimonials = [
-    {
-      id: 1,
-      name: "Ahmad Rahman",
-      role: "Pengusaha",
-      content: "BYD ATTO 3 memberikan pengalaman berkendara yang luar biasa. Teknologi baterai canggih dan performa yang handal membuat perjalanan bisnis saya lebih efisien.",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-    },
-    {
-      id: 2,
-      name: "Siti Nurhaliza",
-      role: "Ibu Rumah Tangga",
-      content: "Sangat puas dengan BYD DOLPHIN. Desainnya elegan, fitur keselamatannya lengkap, dan biaya operasionalnya sangat hemat. Pilihan tepat untuk keluarga.",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
-    },
-    {
-      id: 3,
-      name: "Budi Santoso",
-      role: "Profesional IT",
-      content: "BYD SEALION 7 adalah mobil listrik masa depan. Teknologi konektivitasnya luar biasa dan performa di jalan tol sangat impresif.",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-    }
-  ]
+  {
+    id: 1,
+    name: "Ahmad Rahman",
+    role: "Pengusaha",
+    content: "BYD ATTO 3 memberikan pengalaman berkendara yang luar biasa...",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    carImage: "/images/atto3.jpg"
+  },
+  {
+    id: 2,
+    name: "Siti Nurhaliza", 
+    role: "Ibu Rumah Tangga",
+    content: "Sangat puas dengan BYD DOLPHIN...",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d29tZW4lMjBmYWNlfGVufDB8fDB8fHww",
+    carImage: "/images/dolphin.jpg"
+  },
+  {
+    id: 3,
+    name: "Budi Santoso",
+    role: "Profesional IT", 
+    content: "BYD SEALION 7 adalah mobil listrik masa depan...",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    carImage: "/images/sealion7.jpg"
+  }
+]
 
   return (
     <section
@@ -75,7 +78,18 @@ function Testimonials() {
                   </svg>
                 ))}
               </div>
+                <div className="rounded-lg overflow-hidden border border-white/10 hover:border-[#ecad29]/50 transition-colors duration-300">
+                  <img
+                    src={testimonial.carImage}
+                    alt={`Mobil ${testimonial.name}`}
+                    className="w-full h-32 object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+              {/* Foto Bukti Pembelian */}
+              <div className="mt-4 pt-4 border-t border-white/10">
               <p className="text-gray-300 italic leading-relaxed">"{testimonial.content}"</p>
+              </div>
             </div>
           ))}
         </div>
