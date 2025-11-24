@@ -76,6 +76,12 @@ body {
   color: #FFFFFFDD;
   padding-left: 16px;
   z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .content-place {
@@ -155,11 +161,12 @@ body {
   overflow: hidden;
 }
 .details > .desc {
+  color: #feaf03;
   margin-top: 16px;
   max-width: 560px;
   width: fit-content;
   line-height: 1.6;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 4px rgb(0, 0, 0);
   font-size: clamp(1.1rem, 1.4vw, 1.35rem);
 }
 .details > .cta {
@@ -878,5 +885,67 @@ select:focus,
 .mobile-nav-link:focus {
   outline: none !important;
   box-shadow: none !important;
+}
+
+/* Scroll Down Arrow Indicator */
+.scroll-down-arrow {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  pointer-events: auto;
+}
+
+.scroll-down-arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateX(-50%) scale(1.1);
+}
+
+.scroll-down-arrow .arrow-icon {
+  color: #ecad29 !important;
+  width: 36px;
+  height: 36px;
+  animation: bounceArrow 2s infinite;
+}
+
+.scroll-down-arrow .arrow-icon path {
+  stroke: #ecad29 !important;
+}
+
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-down-arrow {
+    bottom: 30px;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .scroll-down-arrow .arrow-icon {
+    width: 28px;
+    height: 28px;
+  }
 }
 

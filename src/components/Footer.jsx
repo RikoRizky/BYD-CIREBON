@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { priceListData } from '../data/priceListData'
 
 function Footer() {
   const location = useLocation()
@@ -20,6 +21,11 @@ function Footer() {
         })
       }
     }
+  }
+
+  const handleProductClick = (productId) => {
+    // Navigate to product detail page
+    navigate(`/detail/${productId}`)
   }
 
   return (
@@ -44,13 +50,16 @@ function Footer() {
           <div className="footer-section">
             <h3 className="text-lg font-bold mb-4">Products</h3>
             <ul className="space-y-2">
-              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">ATTO 1</button></li>
-              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">ATTO 3</button></li>
-              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">DOLPHIN</button></li>
-              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">M6</button></li>
-              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">SEAL</button></li>
-              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">SEALION 7</button></li>
-              <li><button onClick={() => handleLinkClick('pricelist')} className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left">DENZA D9</button></li>
+              {priceListData.map((p) => (
+                <li key={p.id}>
+                  <button
+                    onClick={() => handleProductClick(p.id)}
+                    className="quick-link text-gray-400 hover:text-white transition-colors duration-300 text-left"
+                  >
+                    {p.name}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="footer-section">
@@ -74,6 +83,19 @@ function Footer() {
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
                 <span className="text-gray-400 text-sm">Bydcirebon.official@gmail.com</span>
+              </div>
+
+              <div className="ml-0 mt-4 rounded-xl overflow-hidden premium-shadow">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.902!2d108.473!3d-6.711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ee1b8b8b8b8b8%3A0x2e6ee1b8b8b8b8b8!2sJl.%20DR.%20Cipto%20Mangunkusumo%20No.%20115%2C%20Pekiringan%2C%20Kec.%20Kesambi%2C%20Kota%20Cirebon%2C%20Jawa%20Barat%2045131!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid"
+                  width="100%"
+                  height="100"
+                  style={{ border: 0, borderRadius: '8px' }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="BYD Cirebon Location"
+                />
               </div>
             </div>
           </div>

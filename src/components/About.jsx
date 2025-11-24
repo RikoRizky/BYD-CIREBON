@@ -172,9 +172,9 @@ function About() {
                   </svg>
                 </div>
                 <div>
+                  <p className="text-xl font-semibold tracking-wide">+62 811-668-722</p>
                   <p className="text-sm text-gray-300">Buka: Senin - Jumat, 08.00 - 20.00 WIB</p>
                   <p className="text-sm text-gray-300">Buka: Sabtu, 08.30 - 15.00 WIB</p>
-                  <p className="text-xl font-semibold tracking-wide">+62 811-668-722</p>
                 </div>
               </div>
             </div>
@@ -232,7 +232,7 @@ function About() {
               ))}
             </div>
 
-            <div className="hidden lg:block mb-10 space-y-6">
+            {/* <div className="hidden lg:block mb-10 space-y-6">
               {experienceHighlights.map((item) => (
             <div
               key={item.title}
@@ -242,7 +242,7 @@ function About() {
                   <p className="text-sm text-gray-400 mt-1">{item.description}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
 

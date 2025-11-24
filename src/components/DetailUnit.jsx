@@ -126,8 +126,8 @@ function DetailUnit() {
 
   // Scroll to top when component mounts
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo({ top: 0, left: 0 })
+  }, [location.pathname])
 
 const INTERIOR_SLIDE_INTERVAL = 7000
 const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
