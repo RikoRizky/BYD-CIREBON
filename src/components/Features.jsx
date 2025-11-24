@@ -60,7 +60,7 @@ function Features() {
             </p>
           </div>
 
-          <div className="text-center p-8 rounded-3xl group border border-white/10 bg-gradient-to-b from-white/5 via-black/40 to-black/70 backdrop-blur-lg shadow-[0_25px_50px_rgba(0,0,0,0.45)]">
+          <div className="text-center p-8 rounded-3xl group border border-white/10 bg-gradient-to-b from-white/5 via-black/40 to-black/70 backdrop-blur-lg shadow-[0_25px_50px_rgba(0,0,0,0.45)] hover:border-[#ecad29]/80 hover:shadow-[0_25px_55px_rgba(236,173,41,0.35)] transition-all duration-300">
             <div className="relative w-20 h-20 bg-gradient-to-br from-[#ecad29] to-[#d99a20] rounded-2xl flex items-center justify-center mx-auto mb-6 transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 premium-glow">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
