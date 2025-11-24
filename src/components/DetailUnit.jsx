@@ -822,8 +822,8 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
                 </h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-[#ecad29] to-[#d99a20] mb-4 rounded-full"></div>
                 <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-                  Lihat lebih dekat desain eksterior <span className="font-semibold text-[#ecad29]">{car.name}</span>{' '}
-                  dengan garis bodi aerodinamis dan karakter khas BYD.
+                  Pilih varian warna terbaik untuk menghadirkan tampilan <span className="font-semibold text-[#ecad29]">{car.name}</span>{' '}
+                  yang semakin menonjol melalui harmoni warna penuh gaya.
                 </p>
               </div>
               {selectedColor && (
@@ -892,7 +892,7 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 premium-heading">Interior Premium</h3>
               <div className="w-full max-w-32 h-1.5 bg-gradient-to-r from-[#ecad29] via-[#d99a20] to-[#ecad29] mb-4 rounded-full premium-glow"></div>
               <p className="text-base text-gray-300 font-light leading-relaxed">
-                Klik gambar untuk melihat detail lengkap. Tiga sudut pandang interior untuk memberikan gambaran lengkap mengenai kenyamanan kabin.
+                Klik gambar untuk melihat detail lebih dalam. Visual interior memberikan gambaran tentang kenyamanan yang ditawarkan.
               </p>
             </div>
           </div>
