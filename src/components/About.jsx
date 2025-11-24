@@ -48,7 +48,7 @@ const stats = [
     )
   },
   {
-    value: '2024',
+    value: '2025',
     label: 'Terbaru',
     icon: (
       <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#ecad29]">
@@ -65,20 +65,20 @@ const stats = [
   }
 ]
 
-const experienceHighlights = [
-  {
-    title: 'Konsultasi Premium BYD Advisor',
-    description: 'Sesi satu-satu untuk menentukan konfigurasi dan paket kepemilikan terbaik'
-  },
-  {
-    title: 'Pendampingan Test Drive Eksklusif',
-    description: 'Tim onsite menyiapkan rute, fitur, dan simulasi kendaraan sesuai kebutuhan Anda'
-  },
-  {
-    title: 'Program Perawatan Terpadu',
-    description: 'Layanan berkala, body repair, hingga ketersediaan suku cadang resmi BYD'
-  },
-]
+// const experienceHighlights = [
+//   {
+//     title: 'Konsultasi Premium BYD Advisor',
+//     description: 'Sesi satu-satu untuk menentukan konfigurasi dan paket kepemilikan terbaik'
+//   },
+//   {
+//     title: 'Pendampingan Test Drive Eksklusif',
+//     description: 'Tim onsite menyiapkan rute, fitur, dan simulasi kendaraan sesuai kebutuhan Anda'
+//   },
+//   {
+//     title: 'Program Perawatan Terpadu',
+//     description: 'Layanan berkala, body repair, hingga ketersediaan suku cadang resmi BYD'
+//   },
+// ]
 
 const highlightCards = [
   {
@@ -246,17 +246,7 @@ function About() {
           </div>
         </div>
 
-        <div className="lg:hidden mt-10 space-y-4">
-          {experienceHighlights.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-3xl border border-white/10 bg-gradient-to-r from-black/40 to-black/10 p-5 shadow-lg shadow-black/20"
-            >
-              <p className="text-sm font-semibold tracking-wide text-white">{item.title}</p>
-              <p className="text-sm text-gray-400 mt-1">{item.description}</p>
-            </div>
-          ))}
-        </div>
+       
       </div>
     </section>
   )
