@@ -780,6 +780,7 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
         <div className="absolute left-10 top-1/3 w-16 h-16 border border-white/10 rounded-[28px]" />
         <div className="absolute right-10 bottom-10 w-20 h-20 border border-white/5 rounded-full" />
       </div>
+      
       <div className="relative z-10">
         <Navbar />
         {/* Hero Image */}
@@ -800,6 +801,250 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
             </p>
           )}
         </div>
+      </div>
+
+          {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-12">
+        {/* Price and Class Selection */}
+        <div className="card-premium rounded-2xl p-8 md:p-10 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 premium-heading">Harga & Tipe</h2>
+              <div className="w-full max-w-24 h-1 bg-gradient-to-r from-[#ecad29] via-[#d99a20] to-[#ecad29] mb-6 rounded-full"></div>
+              {car.classes.length > 1 && (
+                <div className="mb-4">
+                  <label className="block text-gray-300 text-sm font-medium mb-2">Pilih Tipe :</label>
+                  <select
+                    value={selectedClassIndex}
+                    onChange={(e) => setSelectedClassIndex(parseInt(e.target.value))}
+                    className="w-full px-5 py-4 bg-gray-800/90 border border-gray-700 rounded-xl text-white transition-all backdrop-blur-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#ecad29] focus:border-[#ecad29]"
+                  >
+                    {car.classes.map((carClass, idx) => (
+                      <option key={idx} value={idx}>
+                        {carClass.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+              <div className="mb-6 pb-6 border-b border-gray-700/50">
+                {needsWhatsAppContact ? (
+                  <div className="text-center py-4">
+                    <p className="text-white text-lg font-semibold mb-4">Untuk informasi lebih lanjut mengenai tipe ini, silakan hubungi admin kami:</p>
+                  </div>
+                ) : (
+                  <>
+                    <p className="text-transparent bg-clip-text bg-gradient-to-br from-[#ecad29] to-[#d99a20] text-4xl md:text-5xl font-bold mb-3">{displayPrice}</p>
+                    {selectedClass && (
+                      <p className="text-[#ecad29] text-lg font-semibold uppercase tracking-wide mb-2">Tipe : {selectedClass.name}</p>
+                    )}
+                    <p className="text-gray-500 text-sm font-light">* OTR Cirebon (IDR)</p>
+                  </>
+                )}
+              </div>
+              {car.brochure && (
+                <a
+                  href={car.brochure}
+                  download
+                  className="w-full bg-gradient-to-r from-[#39b6ff] to-[#1e88e5] hover:from-[#1e88e5] hover:to-[#1565c0] text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mb-3"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Download Brosur
+                </a>
+              )}
+              {needsWhatsAppContact ? (
+                <button
+                  onClick={() => openWhatsApp('Chat WA Admin - ' + selectedClass?.name)}
+                  className="w-full bg-gradient-to-r from-[#25D366] to-[#20BA5A] hover:from-[#20BA5A] hover:to-[#1A9C4A] text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                  </svg>
+                  Chat WhatsApp Admin
+                </button>
+              ) : (
+                <button
+                  onClick={() => openWhatsApp('Konsultasi Sekarang')}
+                  className="w-full bg-[#ecad29] hover:bg-[#d99a20] text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl"
+                >
+                  Konsultasi Sekarang
+                </button>
+              )}
+            </div>
+            {!needsWhatsAppContact && (
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-6 premium-heading">Ringkasan Spesifikasi</h3>
+                <div className="w-full max-w-20 h-1 bg-gradient-to-r from-[#ecad29] via-[#d99a20] to-[#ecad29] mb-6 rounded-full"></div>
+                <div className="space-y-3">
+                  {specs.engine && (
+                    <div className="flex justify-between border-b border-gray-700 pb-2">
+                      <span className="text-gray-400">Mesin</span>
+                      <span className="text-white font-medium">{specs.engine}</span>
+                    </div>
+                  )}
+                  {specs.power && (
+                    <div className="flex justify-between border-b border-gray-700 pb-2">
+                      <span className="text-gray-400">Daya</span>
+                      <span className="text-white font-medium">{specs.power}</span>
+                    </div>
+                  )}
+                  {specs.battery && (
+                    <div className="flex justify-between border-b border-gray-700 pb-2">
+                      <span className="text-gray-400">Baterai</span>
+                      <span className="text-white font-medium">{specs.battery}</span>
+                    </div>
+                  )}
+                  {specs.range && (
+                    <div className="flex justify-between border-b border-gray-700 pb-2">
+                      <span className="text-gray-400">Jarak Tempuh</span>
+                      <span className="text-white font-medium">{specs.range}</span>
+                    </div>
+                  )}
+                  {specs.seats && (
+                    <div className="flex justify-between border-b border-gray-700 pb-2">
+                      <span className="text-gray-400">Kapasitas</span>
+                      <span className="text-white font-medium">{specs.seats} Kursi</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Detailed Specifications */}
+        {!needsWhatsAppContact && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div className="card-premium rounded-2xl p-8">
+            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-[#ecad29] premium-heading">Spesifikasi Teknis</h3>
+            <div className="space-y-4">
+              {specs.engine && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Tipe Mesin</p>
+                  <p className="text-white font-medium">{specs.engine}</p>
+                </div>
+              )}
+              {specs.power && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Daya Maksimum</p>
+                  <p className="text-white font-medium">{specs.power}</p>
+                </div>
+              )}
+                {specs.torque && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Torsi Maksimum</p>
+                  <p className="text-white font-medium">{specs.torque}</p>
+                </div>
+              )}
+                {specs.battery && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Kapasitas Baterai</p>
+                  <p className="text-white font-medium">{specs.battery}</p>
+                </div>
+              )}
+                {specs.range && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Jarak Tempuh (NEDC)</p>
+                  <p className="text-white font-medium">{specs.range}</p>
+                </div>
+              )}
+                {specs.charging && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Waktu Pengisian</p>
+                  <p className="text-white font-medium">{specs.charging}</p>
+                </div>
+              )}
+                {specs.acceleration && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Akselerasi</p>
+                  <p className="text-white font-medium">{specs.acceleration}</p>
+                </div>
+              )}
+                {specs.topSpeed && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Kecepatan Maksimum</p>
+                  <p className="text-white font-medium">{specs.topSpeed}</p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="card-premium rounded-2xl p-8">
+            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-[#ecad29] premium-heading">Dimensi & Berat</h3>
+            <div className="space-y-4">
+              {specs.dimensions && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Dimensi (P × L × T)</p>
+                  <p className="text-white font-medium">{specs.dimensions}</p>
+                </div>
+              )}
+              {specs.weight && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Berat Kosong</p>
+                  <p className="text-white font-medium">{specs.weight}</p>
+                </div>
+              )}
+              {specs.wheelbase && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Jarak Sumbu Roda (Wheelbase)</p>
+                  <p className="text-white font-medium">{specs.wheelbase}</p>
+                </div>
+              )}
+              {specs.groundClearance && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Ground Clearance</p>
+                  <p className="text-white font-medium">{specs.groundClearance}</p>
+                </div>
+              )}
+              {specs.batteryType && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Tipe Baterai</p>
+                  <p className="text-white font-medium">{specs.batteryType}</p>
+                </div>
+              )}
+              {specs.seats && (
+                <div>
+                  <p className="text-gray-400 text-sm mb-1">Kapasitas Penumpang</p>
+                  <p className="text-white font-medium">{specs.seats} Kursi</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+        )}
+
+        {/* Features */}
+        {!needsWhatsAppContact && featuresList && featuresList.length > 0 && (
+          <div className="card-premium rounded-2xl p-8 md:p-10 mb-10">
+            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-[#ecad29] premium-heading">Fitur & Teknologi</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {featuresList.map((feature, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-[#ecad29] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-gray-300">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* CTA Section */}
+        {/* <div className="bg-gradient-to-r from-[#a76b18] via-[#c7851f] to-[#d39727] rounded-2xl p-10 md:p-12 text-center premium-glow border border-white/10">
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white premium-heading">Tertarik dengan {car.name}?</h3>
+          <p className="text-lg md:text-xl mb-8 text-white/95 font-light max-w-2xl mx-auto">
+            Hubungi kami sekarang untuk informasi lebih lanjut dan penawaran terbaik!
+          </p>
+          <button
+            onClick={() => openWhatsApp('Hubungi Kami')}
+            className="bg-white text-[#ecad29] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl"
+          >
+            Hubungi Kami
+          </button>
+        </div> */}
       </div>
 
       {/* Image focus section / gallery eksterior */}
@@ -1075,249 +1320,6 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-12">
-        {/* Price and Class Selection */}
-        <div className="card-premium rounded-2xl p-8 md:p-10 mb-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 premium-heading">Harga & Tipe Class</h2>
-              <div className="w-full max-w-24 h-1 bg-gradient-to-r from-[#ecad29] via-[#d99a20] to-[#ecad29] mb-6 rounded-full"></div>
-              {car.classes.length > 1 && (
-                <div className="mb-4">
-                  <label className="block text-gray-300 text-sm font-medium mb-2">Pilih Tipe Class:</label>
-                  <select
-                    value={selectedClassIndex}
-                    onChange={(e) => setSelectedClassIndex(parseInt(e.target.value))}
-                    className="w-full px-5 py-4 bg-gray-800/90 border border-gray-700 rounded-xl text-white transition-all backdrop-blur-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#ecad29] focus:border-[#ecad29]"
-                  >
-                    {car.classes.map((carClass, idx) => (
-                      <option key={idx} value={idx}>
-                        {carClass.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              )}
-              <div className="mb-6 pb-6 border-b border-gray-700/50">
-                {needsWhatsAppContact ? (
-                  <div className="text-center py-4">
-                    <p className="text-white text-lg font-semibold mb-4">Untuk informasi lebih lanjut mengenai tipe ini, silakan hubungi admin kami:</p>
-                  </div>
-                ) : (
-                  <>
-                    <p className="text-transparent bg-clip-text bg-gradient-to-br from-[#ecad29] to-[#d99a20] text-4xl md:text-5xl font-bold mb-3">{displayPrice}</p>
-                    {selectedClass && (
-                      <p className="text-[#ecad29] text-lg font-semibold uppercase tracking-wide mb-2">Class: {selectedClass.name}</p>
-                    )}
-                    <p className="text-gray-500 text-sm font-light">* OTR Cirebon (IDR)</p>
-                  </>
-                )}
-              </div>
-              {car.brochure && (
-                <a
-                  href={car.brochure}
-                  download
-                  className="w-full bg-gradient-to-r from-[#39b6ff] to-[#1e88e5] hover:from-[#1e88e5] hover:to-[#1565c0] text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mb-3"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Download Brosur
-                </a>
-              )}
-              {needsWhatsAppContact ? (
-                <button
-                  onClick={() => openWhatsApp('Chat WA Admin - ' + selectedClass?.name)}
-                  className="w-full bg-gradient-to-r from-[#25D366] to-[#20BA5A] hover:from-[#20BA5A] hover:to-[#1A9C4A] text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                  </svg>
-                  Chat WhatsApp Admin
-                </button>
-              ) : (
-                <button
-                  onClick={() => openWhatsApp('Konsultasi Sekarang')}
-                  className="w-full bg-[#ecad29] hover:bg-[#d99a20] text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl"
-                >
-                  Konsultasi Sekarang
-                </button>
-              )}
-            </div>
-            {!needsWhatsAppContact && (
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-6 premium-heading">Ringkasan Spesifikasi</h3>
-                <div className="w-full max-w-20 h-1 bg-gradient-to-r from-[#ecad29] via-[#d99a20] to-[#ecad29] mb-6 rounded-full"></div>
-                <div className="space-y-3">
-                  {specs.engine && (
-                    <div className="flex justify-between border-b border-gray-700 pb-2">
-                      <span className="text-gray-400">Mesin</span>
-                      <span className="text-white font-medium">{specs.engine}</span>
-                    </div>
-                  )}
-                  {specs.power && (
-                    <div className="flex justify-between border-b border-gray-700 pb-2">
-                      <span className="text-gray-400">Daya</span>
-                      <span className="text-white font-medium">{specs.power}</span>
-                    </div>
-                  )}
-                  {specs.battery && (
-                    <div className="flex justify-between border-b border-gray-700 pb-2">
-                      <span className="text-gray-400">Baterai</span>
-                      <span className="text-white font-medium">{specs.battery}</span>
-                    </div>
-                  )}
-                  {specs.range && (
-                    <div className="flex justify-between border-b border-gray-700 pb-2">
-                      <span className="text-gray-400">Jarak Tempuh</span>
-                      <span className="text-white font-medium">{specs.range}</span>
-                    </div>
-                  )}
-                  {specs.seats && (
-                    <div className="flex justify-between border-b border-gray-700 pb-2">
-                      <span className="text-gray-400">Kapasitas</span>
-                      <span className="text-white font-medium">{specs.seats} Kursi</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Detailed Specifications */}
-        {!needsWhatsAppContact && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-          <div className="card-premium rounded-2xl p-8">
-            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-[#ecad29] premium-heading">Spesifikasi Teknis</h3>
-            <div className="space-y-4">
-              {specs.engine && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Tipe Mesin</p>
-                  <p className="text-white font-medium">{specs.engine}</p>
-                </div>
-              )}
-              {specs.power && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Daya Maksimum</p>
-                  <p className="text-white font-medium">{specs.power}</p>
-                </div>
-              )}
-                {specs.torque && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Torsi Maksimum</p>
-                  <p className="text-white font-medium">{specs.torque}</p>
-                </div>
-              )}
-                {specs.battery && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Kapasitas Baterai</p>
-                  <p className="text-white font-medium">{specs.battery}</p>
-                </div>
-              )}
-                {specs.range && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Jarak Tempuh (NEDC)</p>
-                  <p className="text-white font-medium">{specs.range}</p>
-                </div>
-              )}
-                {specs.charging && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Waktu Pengisian</p>
-                  <p className="text-white font-medium">{specs.charging}</p>
-                </div>
-              )}
-                {specs.acceleration && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Akselerasi</p>
-                  <p className="text-white font-medium">{specs.acceleration}</p>
-                </div>
-              )}
-                {specs.topSpeed && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Kecepatan Maksimum</p>
-                  <p className="text-white font-medium">{specs.topSpeed}</p>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="card-premium rounded-2xl p-8">
-            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-[#ecad29] premium-heading">Dimensi & Berat</h3>
-            <div className="space-y-4">
-              {specs.dimensions && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Dimensi (P × L × T)</p>
-                  <p className="text-white font-medium">{specs.dimensions}</p>
-                </div>
-              )}
-              {specs.weight && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Berat Kosong</p>
-                  <p className="text-white font-medium">{specs.weight}</p>
-                </div>
-              )}
-              {specs.wheelbase && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Jarak Sumbu Roda (Wheelbase)</p>
-                  <p className="text-white font-medium">{specs.wheelbase}</p>
-                </div>
-              )}
-              {specs.groundClearance && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Ground Clearance</p>
-                  <p className="text-white font-medium">{specs.groundClearance}</p>
-                </div>
-              )}
-              {specs.batteryType && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Tipe Baterai</p>
-                  <p className="text-white font-medium">{specs.batteryType}</p>
-                </div>
-              )}
-              {specs.seats && (
-                <div>
-                  <p className="text-gray-400 text-sm mb-1">Kapasitas Penumpang</p>
-                  <p className="text-white font-medium">{specs.seats} Kursi</p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-        )}
-
-        {/* Features */}
-        {!needsWhatsAppContact && featuresList && featuresList.length > 0 && (
-          <div className="card-premium rounded-2xl p-8 md:p-10 mb-10">
-            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-[#ecad29] premium-heading">Fitur & Teknologi</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {featuresList.map((feature, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-[#ecad29] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-gray-300">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* CTA Section */}
-        {/* <div className="bg-gradient-to-r from-[#a76b18] via-[#c7851f] to-[#d39727] rounded-2xl p-10 md:p-12 text-center premium-glow border border-white/10">
-          <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white premium-heading">Tertarik dengan {car.name}?</h3>
-          <p className="text-lg md:text-xl mb-8 text-white/95 font-light max-w-2xl mx-auto">
-            Hubungi kami sekarang untuk informasi lebih lanjut dan penawaran terbaik!
-          </p>
-          <button
-            onClick={() => openWhatsApp('Hubungi Kami')}
-            className="bg-white text-[#ecad29] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl"
-          >
-            Hubungi Kami
-          </button>
-        </div> */}
-      </div>
         <div className="footer-gradient-line"></div>
         <Footer />
       </div>

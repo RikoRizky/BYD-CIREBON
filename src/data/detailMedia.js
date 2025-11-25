@@ -1,11 +1,11 @@
 export const colorOptionsByCar = {
   'byd-dolphin': [
-    { name: 'Essential Atlantis Grey', value: '#5f6068', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_AtlatinsGrey.png' },
-    { name: 'Essential Harbour Grey', value: '#424b4f', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_HarbourGrey.png' },
-    { name: 'Essential Sky White', value: '#f4f5f7', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_skywhite.png' },
-    { name: 'Premium Atlantis Grey (Dual Tone)', value: '#6a7078', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_AtlatinsGrey.png', classes: ['Premium'] },
-    { name: 'Premium Harbour Grey (Dual Tone)', value: '#4f5559', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_HarbourGrey.png', classes: ['Premium'] },
-    { name: 'Premium Sky White + Harbour Grey', value: '#c7cdd3', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_SkyWhite_HarbourGrey.png', classes: ['Premium'] }
+    { name: 'Atlantis Grey', value: '#5f6068', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_AtlatinsGrey.png' },
+    { name: 'Harbour Grey', value: '#424b4f', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_HarbourGrey.png' },
+    { name: 'Sky White', value: '#f4f5f7', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_skywhite.png' },
+    { name: 'Atlantis Grey (Dual Tone)', value: '#6a7078', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_AtlatinsGrey.png', classes: ['Premium'] },
+    { name: 'Harbour Grey (Dual Tone)', value: '#4f5559', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_HarbourGrey.png', classes: ['Premium'] },
+    { name: 'Sky White + Harbour Grey', value: '#c7cdd3', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_SkyWhite_HarbourGrey.png', classes: ['Premium'] }
   ],
   'byd-atto-1': [
     { name: 'Sprout Green', value: '#6fa256', imageKey: 'warna/BYD_ATTO1/ATTO1_Sprout_Green.png' },
@@ -14,11 +14,9 @@ export const colorOptionsByCar = {
   ],
   'byd-atto-3': [
     { name: 'Surf Blue', value: '#0073b6', imageKey: 'warna/BYD_ATTO3/ATTO3_BLUE.png' },
-    { name: 'Frost White', value: '#f5f5f5', imageKey: 'warna/BYD_ATTO3/ATTO3_WHITE.png' },
+    { name: 'Ski White', value: '#f5f5f5', imageKey: 'warna/BYD_ATTO3/ATTO3_WHITE.png' },
     { name: 'Cosmos Black', value: '#111217', imageKey: 'warna/BYD_ATTO3/ATTO3_BLACK.png' },
-    { name: 'Forest Green', value: '#325b4a', imageKey: 'warna/BYD_ATTO3/ATTO3_GREEN.png' },
-    { name: 'Graphite Grey', value: '#808080', imageKey: 'warna/BYD_ATTO3/ATTO3_GREY.png' },
-    { name: 'Passion Red', value: '#d9272a', imageKey: 'warna/BYD_ATTO3/ATTO3_RED.png' }
+    { name: 'Boulder Grey', value: '#808080', imageKey: 'warna/BYD_ATTO3/ATTO3_GREY.png' },
   ],
   'byd-seal': [
     { name: 'Aurora White', value: '#f5f6f8', imageKey: 'warna/BYD_SEAL/SEAL_premium_AuroraWhite.png', classes: ['Premium','Performance','Dynamic'] },

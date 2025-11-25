@@ -78,7 +78,7 @@ function PriceList() {
                   
                   {car.classes.length > 1 && (
                     <div className="mb-6">
-                      <label className="block text-gray-300 text-sm font-semibold mb-3 uppercase tracking-wide">Pilih Tipe Class:</label>
+                      <label className="block text-gray-300 text-sm font-semibold mb-3 uppercase tracking-wide">Pilih Tipe :</label>
                       <select
                         value={selectedClassIndex}
                         onChange={(e) => handleClassChange(car.id, parseInt(e.target.value))}

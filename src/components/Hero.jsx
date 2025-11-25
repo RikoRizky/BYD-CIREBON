@@ -655,7 +655,7 @@ function Hero() {
 
       <div className="details" id="details-even" ref={detailsEvenElementRef}>
         <div className="place-box">
-          <div className="text">BYD - Kota Cirebon</div>
+          <div className="text">BYD Harmony Cirebon</div>
         </div>
         <div className="title-box-1">
           <div className="title-1">BYD</div>
@@ -688,7 +688,7 @@ function Hero() {
 
       <div className="details" id="details-odd" ref={detailsOddElementRef}>
         <div className="place-box">
-          <div className="text">BYD - Kota Cirebon</div>
+          <div className="text">BYD Harmony Cirebon</div>
         </div>
         <div className="title-box-1">
           <div className="title-1">BYD</div>
