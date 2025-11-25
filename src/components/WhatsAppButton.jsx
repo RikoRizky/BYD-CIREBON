@@ -2,7 +2,9 @@ import React from 'react'
 
 const WhatsAppButton = () => {
   const waNumber = '62811668722'
-  const waLink = `https://wa.me/${waNumber}`
+  const message = 'Halo saya ingin tau informasi seputar BYD Harmony Cirebon'
+  const encodedMessage = encodeURIComponent(message)
+  const waLink = `https://wa.me/${waNumber}?text=${encodedMessage}`
 
   return (
     <a
