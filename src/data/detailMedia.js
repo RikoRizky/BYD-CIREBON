@@ -1,11 +1,9 @@
 export const colorOptionsByCar = {
   'byd-dolphin': [
-    { name: 'Atlantis Grey', value: '#5f6068', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_AtlatinsGrey.png' },
-    { name: 'Harbour Grey', value: '#424b4f', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_HarbourGrey.png' },
-    { name: 'Sky White', value: '#f4f5f7', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_skywhite.png' },
-    { name: 'Atlantis Grey (Dual Tone)', value: '#6a7078', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_AtlatinsGrey.png', classes: ['Premium'] },
-    { name: 'Harbour Grey (Dual Tone)', value: '#4f5559', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_HarbourGrey.png', classes: ['Premium'] },
-    { name: 'Sky White + Harbour Grey', value: '#c7cdd3', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_SkyWhite_HarbourGrey.png', classes: ['Premium'] }
+    { name: 'Urban Grey', value: '#424b4f', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_HarbourGrey.png' },
+    { name: 'Ski White', value: '#f4f5f7', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_skywhite.png' },
+    { name: 'Ski White + Urban Grey', value: '#c7cdd3', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_SkyWhite_HarbourGrey.png', classes: ['Premium'] },
+    { name: 'Coral pink + Urban Grey', value: '#bd0ac6ff', imagekey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_CoralPink_UrbanGrey.png', classes: ['Premium']}
   ],
   'byd-atto-1': [
     { name: 'Sprout Green', value: '#6fa256', imageKey: 'warna/BYD_ATTO1/ATTO1_Sprout_Green.png' },

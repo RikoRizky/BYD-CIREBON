@@ -180,10 +180,12 @@ function About() {
             </div>
 
             <div className="relative rounded-[32px] p-1 bg-gradient-to-br from-white/30 via-white/5 to-transparent shadow-2xl">
-              <div className="relative rounded-[28px] overflow-hidden bg-black">
+
+            <div className="flex gap-4 rounded-[28px] overflow-hidden bg-black">
+              <div className="relative flex-1 overflow-hidden">
                 <img
-                  src="/images/dealer-byd-cirebon.jpg"
-                  alt="Dealer Resmi BYD Cirebon"
+                  src="/images/companyprofile1.jpg"
+                  alt="Company Profile 1"
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     e.target.src = '/images/about.jpg'
@@ -191,6 +193,28 @@ function About() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/40" />
               </div>
+              <div className="relative flex-1 overflow-hidden">
+                <img
+                  src="/images/companyprofile2.jpg"
+                  alt="Company Profile 2"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.src = '/images/about.jpg'
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/40" />
+              </div>
+            </div>
+            </div>
+
+            <div className="mt-6">
+              <a
+                href="/brochures/HARMONY AUTO ID COMPANY PROFILE Oct 2025_Ver 1.0 (Med Res).pdf"
+                download
+                className="inline-block rounded-full bg-gradient-to-r from-[#ecad29] via-[#f7d382] to-[#d39412] px-6 py-3 text-black font-semibold shadow-lg shadow-black/40 hover:brightness-110 transition-all duration-300"
+              >
+                Unduh Brosur Company Profile
+              </a>
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-3 w-full max-w-xl lg:max-w-none">
