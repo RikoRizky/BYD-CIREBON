@@ -3,7 +3,7 @@ export const colorOptionsByCar = {
     { name: 'Urban Grey', value: '#424b4f', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_HarbourGrey.png' },
     { name: 'Ski White', value: '#f4f5f7', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_skywhite.png' },
     { name: 'Ski White + Urban Grey', value: '#c7cdd3', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_SkyWhite_HarbourGrey.png', classes: ['Premium'] },
-    { name: 'Coral pink + Urban Grey', value: '#bd0ac6ff', imagekey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_CoralPink_UrbanGrey.png', classes: ['Premium']}
+    { name: 'Coral pink + Urban Grey', value: '#bd0ac6ff', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_CoralPink_UrbanGrey.png', classes: ['Premium']}
   ],
   'byd-atto-1': [
     { name: 'Sprout Green', value: '#6fa256', imageKey: 'warna/BYD_ATTO1/ATTO1_Sprout_Green.png' },
