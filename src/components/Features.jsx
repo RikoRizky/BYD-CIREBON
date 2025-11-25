@@ -13,7 +13,7 @@ function Features() {
         <div className="absolute left-10 top-1/3 w-14 h-14 border border-white/10 rounded-full" />
       </div>
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20 fade-in-up">
+        <div className="text-center mb-12 fade-in-up">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white premium-heading leading-tight">
             Keunggulan Dealer Mobil Listrik BYD Cirebon
           </h2>

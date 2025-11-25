@@ -1,6 +1,9 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 const stats = [
   {
-    value: '7+',
+    value: '7',
     label: 'Model Tersedia',
     icon: (
       <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#ecad29]">
@@ -64,6 +67,7 @@ const stats = [
     )
   }
 ]
+
 
 // const experienceHighlights = [
 //   {
@@ -133,11 +137,35 @@ const highlightCards = [
 ]
 
 function About() {
+  const [previewImage, setPreviewImage] = useState(null)
+
   return (
     <section
       id="about"
       className="section-about relative overflow-hidden bg-[#04050c] text-white"
     >
+      {previewImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-6 cursor-zoom-out"
+          onClick={() => setPreviewImage(null)}
+        >
+          <div className="relative max-w-5xl w-full mt-12 md:mt-16" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              onClick={() => setPreviewImage(null)}
+              className="absolute -top-3 -right-3 z-10 rounded-full bg-black/70 text-white p-2 hover:bg-black transition"
+              aria-label="Close preview"
+            >
+              X
+            </button>
+            <img
+              src={previewImage}
+              alt="Preview company profile"
+              className="w-full max-h-[70vh] md:max-h-[70vh] object-contain rounded-3xl shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
       <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_15%_20%,rgba(236,173,41,0.5),transparent_45%)]"></div>
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_80%_-10%,rgba(86,129,255,0.4),transparent_35%)]"></div>
       <div className="absolute inset-0 pointer-events-none">
@@ -155,7 +183,7 @@ function About() {
             </div>
 
             <div className="mb-6 max-w-md">
-              <div className="flex items-center gap-4 rounded-3xl border border-white/10 bg-white/5 px-6 py-4 shadow-lg shadow-black/40">
+              <div className="flex items-center gap-4 rounded-3xl border border-white/10 bg-white/5 px-6 py-4 shadow-lg shadow-black/40 hover:border-[#ecad29]/70 hover:shadow-[0_25px_55px_rgba(236,173,41,0.35)] transition-all duration-300">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-black/50 border border-white/10">
                   <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#ecad29]">
                       <path
@@ -179,42 +207,86 @@ function About() {
               </div>
             </div>
 
-            <div className="relative rounded-[32px] p-1 bg-gradient-to-br from-white/30 via-white/5 to-transparent shadow-2xl">
-
-            <div className="flex gap-4 rounded-[28px] overflow-hidden bg-black">
-              <div className="relative flex-1 overflow-hidden">
-                <img
-                  src="/images/companyprofile1.jpg"
-                  alt="Company Profile 1"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.src = '/images/about.jpg'
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/40" />
-              </div>
-              <div className="relative flex-1 overflow-hidden">
-                <img
-                  src="/images/companyprofile2.jpg"
-                  alt="Company Profile 2"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.src = '/images/about.jpg'
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/40" />
+            <div className="relative rounded-[32px] p-1 border border-white/5 bg-transparent shadow-2xl">
+              <div className="grid gap-5 md:grid-cols-2 rounded-[28px]">
+                <button
+                  type="button"
+                  onClick={() => setPreviewImage('/images/companyprofile1.jpg')}
+                  className="relative rounded-[28px] overflow-hidden border border-white/15 shadow-[0_25px_45px_rgba(0,0,0,0.45)] transform md:-rotate-2 transition hover:-translate-y-1 hover:border-[#ecad29]/60 focus:outline-none focus:ring-2 focus:ring-[#39b6ff]/60 cursor-zoom-in bg-transparent"
+                  aria-label="Perbesar Company Profile 1"
+                >
+                  <img
+                    src="/images/companyprofile1.jpg"
+                    alt="Company Profile 1"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.src = '/images/about.jpg'
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/35" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setPreviewImage('/images/companyprofile2.jpg')}
+                  className="relative rounded-[28px] overflow-hidden border border-white/15 shadow-[0_25px_45px_rgba(0,0,0,0.45)] transform md:rotate-2 transition hover:-translate-y-1 hover:border-[#ecad29]/60 focus:outline-none focus:ring-2 focus:ring-[#39b6ff]/60 cursor-zoom-in bg-transparent"
+                  aria-label="Perbesar Company Profile 2"
+                >
+                  <img
+                    src="/images/companyprofile2.jpg"
+                    alt="Company Profile 2"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.src = '/images/about.jpg'
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/35" />
+                </button>
               </div>
             </div>
-            </div>
 
-            <div className="mt-6">
-              <a
-                href="/brochures/HARMONY AUTO ID COMPANY PROFILE Oct 2025_Ver 1.0 (Med Res).pdf"
-                download
-                className="inline-block rounded-full bg-gradient-to-r from-[#ecad29] via-[#f7d382] to-[#d39412] px-6 py-3 text-black font-semibold shadow-lg shadow-black/40 hover:brightness-110 transition-all duration-300"
-              >
-                Unduh Brosur Company Profile
-              </a>
+            <div className="mt-8 rounded-3xl border border-white/10 bg-gradient-to-r from-black/60 via-black/30 to-transparent px-6 py-6 shadow-lg shadow-black/30 flex flex-col gap-4 hover:border-[#ecad29]/70 hover:shadow-[0_25px_55px_rgba(236,173,41,0.35)] transition-all duration-300">
+
+  <div>
+    <p className="text-sm uppercase tracking-[0.4em] text-[#ecad29] mb-2">
+      Informasi Lengkap
+    </p>
+
+    <h3 className="text-2xl font-semibold text-white leading-snug">
+      Silakan unduh brosur Company Profile untuk info lebih detail
+    </h3>
+  </div>
+
+  <a
+    href="/brochures/HARMONY AUTO ID COMPANY PROFILE Oct 2025_Ver 1.0 (Med Res).pdf"
+    download
+    className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#b8862a] via-[#facc15] to-[#d97706] px-8 py-3 text-[#1a1505] font-semibold border border-[#fef3c7]/50 shadow-[0_12px_30px_rgba(250,204,21,0.3)] hover:shadow-[0_15px_35px_rgba(233,196,106,0.45)] transition-all duration-300"
+  >
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+    </svg>
+    Unduh Brosur
+  </a>
+</div>
+
+
+            <div className="mt-8 w-full lg:hidden">
+              <div className="rounded-3xl border border-white/10 bg-gradient-to-r from-black/60 via-black/30 to-transparent px-6 py-6 shadow-lg shadow-black/30 flex flex-col gap-4 hover:border-[#ecad29]/70 hover:shadow-[0_25px_55px_rgba(236,173,41,0.35)] transition-all duration-300">
+                <div>
+                  <p className="text-sm uppercase tracking-[0.4em] text-[#ecad29] mb-2">Program Khusus</p>
+                  <h3 className="text-2xl font-semibold text-white leading-snug">
+                    Promo eksklusif untuk memiliki mobil BYD impian Anda
+                  </h3>
+                </div>
+                <Link
+                  to="/promo-program"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#b8862a] via-[#facc15] to-[#d97706] px-6 py-3 text-[#1a1505] font-semibold shadow-[0_12px_30px_rgba(250,204,21,0.25)] hover:shadow-[0_15px_35px_rgba(233,196,106,0.4)] transition-all"
+                >
+                  Lihat Program Promo
+                  <span aria-hidden="true" className="text-xl">
+                    &rarr;
+                  </span>
+                </Link>
+              </div>
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-3 w-full max-w-xl lg:max-w-none">
@@ -232,18 +304,36 @@ function About() {
             <h2 className="premium-heading text-[42px] sm:text-[50px] leading-tight mb-5">
               Dealer Resmi Mobil BYD Cirebon
             </h2>
-            <div className="w-32 h-[3px] bg-gradient-to-r from-[#39b6ff] via-[#ecad29] to-transparent mb-8" />
+            <div className="w-full max-w-32 h-1.5 bg-gradient-to-r from-[#39b6ff] via-[#ecad29] to-transparent mb-6 rounded-full premium-glow" />
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              Dealer BYD Cirebon merupakan dealer resmi mobil listrik BYD di Kota Cirebon. Kami menghadirkan
+              Dealer BYD Harmony Cirebon merupakan dealer resmi mobil listrik BYD di Kota Cirebon. Kami dengan bangga menghadirkan
               kendaraan listrik premium dengan pendekatan layanan personal, memastikan setiap pengalaman test drive
               hingga serah terima terasa eksklusif dan berkesan.
             </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+            <div className="mb-10 rounded-3xl border border-white/10 bg-gradient-to-r from-black/60 via-black/30 to-transparent px-6 py-6 shadow-lg shadow-black/30 flex flex-col md:flex-row md:items-center md:justify-between gap-5 hidden lg:flex hover:border-[#ecad29]/70 hover:shadow-[0_25px_55px_rgba(236,173,41,0.35)] transition-all duration-300">
+              <div>
+              <p className="text-sm uppercase tracking-[0.4em] text-[#ecad29] mb-2">Program Khusus</p>
+                <h3 className="text-2xl font-semibold text-white">
+                  Promo eksklusif untuk memiliki mobil BYD impian Anda
+                </h3>
+              </div>
+              <Link
+                to="/promo-program"
+                className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#b8862a] via-[#facc15] to-[#d97706] px-8 py-3 text-[#1a1505] font-semibold border border-[#b8862a]/20 shadow-[0_12px_30px_rgba(250,204,21,0.25)] hover:shadow-[0_15px_35px_rgba(233,196,106,0.4)] transition-all duration-300"
+              >
+                Lihat Program Promo
+                <span aria-hidden="true" className="text-xl">
+                  &rarr;
+                </span>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-4 mb-10">
               {stats.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-transparent px-4 py-5 text-center shadow-lg shadow-black/40 flex flex-col items-center gap-3"
+                  className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-transparent px-4 py-5 text-center shadow-lg shadow-black/40 flex flex-col items-center gap-3 hover:border-[#ecad29]/80 hover:shadow-[0_25px_55px_rgba(236,173,41,0.35)] transition-all duration-300"
                 >
                   <div className="flex items-center justify-center rounded-2xl bg-black/40 border border-white/10 p-3">
                     {item.icon}
@@ -270,7 +360,6 @@ function About() {
           </div>
         </div>
 
-       
       </div>
     </section>
   )

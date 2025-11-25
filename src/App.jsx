@@ -10,6 +10,8 @@ import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import DetailUnit from './components/DetailUnit'
+import PromoPrograms from './components/PromoPrograms'
+import WhatsAppButton from './components/WhatsAppButton'
 
 function HomePage() {
   const location = useLocation()
@@ -66,7 +68,9 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/detail/:carId" element={<DetailUnit />} />
+        <Route path="/promo-program" element={<PromoPrograms />} />
       </Routes>
+      <WhatsAppButton />
     </BrowserRouter>
   )
 }
