@@ -98,7 +98,7 @@ function PriceList() {
                       {displayPrice}
                     </p>
                     {selectedClass && (
-                      <p className="text-[#ecad29] text-sm font-semibold uppercase tracking-wide">Class: {selectedClass.name}</p>
+                      <p className="text-[#ecad29] text-sm font-semibold uppercase tracking-wide">Tipe : {selectedClass.name}</p>
                     )}
                     <p className="text-gray-500 text-xs mt-2">* OTR Cirebon (IDR)</p>
                   </div>
