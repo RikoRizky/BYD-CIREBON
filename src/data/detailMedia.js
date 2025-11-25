@@ -23,22 +23,22 @@ export const colorOptionsByCar = {
     { name: 'Shark Grey', value: '#5b5f66', imageKey: 'warna/BYD_SEAL/SEAL_premium_SharkGrey.png', classes: ['Premium','Performance'] }
   ],
   'byd-sealion-7': [
-    { name: 'Glacier White', value: '#f7f7f9', imageKey: 'warna/BYD_SEALION7/SEALION7_White.png' },
-    { name: 'Obsidian Black', value: '#0f0f0f', imageKey: 'warna/BYD_SEALION7/SEALION7_Black.png' },
-    { name: 'Ocean Blue', value: '#215c92', imageKey: 'warna/BYD_SEALION7/SEALION7_Blue.png' },
-    { name: 'Graphite Grey', value: '#4f545a', imageKey: 'warna/BYD_SEALION7/SEALION7_Grey.png' }
+    { name: 'Aurora White', value: '#f7f7f9', imageKey: 'warna/BYD_SEALION7/SEALION7_White.png' },
+    { name: 'Cosmos Black', value: '#0f0f0f', imageKey: 'warna/BYD_SEALION7/SEALION7_Black.png' },
+    { name: 'Atlantic Grey', value: '#215c92', imageKey: 'warna/BYD_SEALION7/SEALION7_Blue.png' },
+    { name: 'Shark Grey', value: '#4f545a', imageKey: 'warna/BYD_SEALION7/SEALION7_Grey.png' }
   ],
   'byd-m6': [
-    { name: 'Pearl White', value: '#f5f5f5', imageKey: 'warna/BYD_M6/M6_White.png' },
-    { name: 'Space Black', value: '#101114', imageKey: 'warna/BYD_M6/M6_Black.png' },
-    { name: 'Ocean Blue', value: '#204e8a', imageKey: 'warna/BYD_M6/M6_Blue.png' },
-    { name: 'Graphite Grey', value: '#585c63', imageKey: 'warna/BYD_M6/M6_Grey.png' }
+    { name: 'Crystal White', value: '#f5f5f5', imageKey: 'warna/BYD_M6/M6_White.png' },
+    { name: 'Cosmos Black', value: '#101114', imageKey: 'warna/BYD_M6/M6_Black.png' },
+    { name: 'Quartz Blue', value: '#204e8a', imageKey: 'warna/BYD_M6/M6_Blue.png' },
+    { name: 'Harbour Grey', value: '#585c63', imageKey: 'warna/BYD_M6/M6_Grey.png' }
   ],
   'denza-d9': [
-    { name: 'Crystal White', value: '#f5f7f9', imageKey: 'warna/BYD_DENZAD9/DenzaD9_White.png' },
-    { name: 'Graphite Black', value: '#0d0d0f', imageKey: 'warna/BYD_DENZAD9/DenzaD9_Black.png' },
-    { name: 'Aurora Blue', value: '#1c3f7b', imageKey: 'warna/BYD_DENZAD9/DenzaD9_Blue.png' },
-    { name: 'Nebula Grey', value: '#4e545c', imageKey: 'warna/BYD_DENZAD9/DenzaD9_Grey.png' }
+    { name: 'Artic White', value: '#f5f7f9', imageKey: 'warna/BYD_DENZAD9/DenzaD9_White.png' },
+    { name: 'Cosmos Black', value: '#0d0d0f', imageKey: 'warna/BYD_DENZAD9/DenzaD9_Black.png' },
+    { name: 'Whale Sea Blue', value: '#1c3f7b', imageKey: 'warna/BYD_DENZAD9/DenzaD9_Blue.png' },
+    { name: 'Harbour Grey', value: '#4e545c', imageKey: 'warna/BYD_DENZAD9/DenzaD9_Grey.png' }
   ]
 }
 
