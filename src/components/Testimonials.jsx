@@ -1,106 +1,254 @@
-import React from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 function Testimonials() {
-  const testimonials = [
-  {
-    id: 1,
-    name: "Ahmad Rahman",
-    role: "Pengusaha",
-    content: "BYD ATTO 3 memberikan pengalaman berkendara yang luar biasa...",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    carImage: "/images/atto3.jpg"
-  },
-  {
-    id: 2,
-    name: "Siti Nurhaliza", 
-    role: "Ibu Rumah Tangga",
-    content: "Sangat puas dengan BYD DOLPHIN...",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d29tZW4lMjBmYWNlfGVufDB8fDB8fHww",
-    carImage: "/images/dolphin.jpg"
-  },
-  {
-    id: 3,
-    name: "Budi Santoso",
-    role: "Profesional IT", 
-    content: "BYD SEALION 7 adalah mobil listrik masa depan...",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    carImage: "/images/sealion7.jpg"
-  }
-]
+  const sliderItems = useMemo(
+    () => [
+      {
+        id: 1,
+        title: 'Terima Kasih BYD Family',
+        message:
+          'Telah mempercayai BYD Harmony Auto sebagai pilihan mobil listrik anda. Bersama kita melangkah menuju masa depan yang lebih hijau dan berkelanjutan.',
+        image: '/testimonials/testimonial1.jpeg',
+        badge: 'Indonesia EV Sales No.1',
+        accentFrom: '#2563eb',
+        accentTo: '#ecad29',
+        imagePosition: 'center'
+      },
+      {
+        id: 2,
+        title: 'Thank You',
+        message:
+          'Thank you for choosing DENZA Harmony Auto as your trusted driving companion. #YourTrustedAutoPartner',
+        image: '/testimonials/testimonial2.jpeg',
+        badge: 'Harmony Auto Exclusive Delivery',
+        accentFrom: '#f97316',
+        accentTo: '#db2777',
+        imagePosition: 'center'
+      },
+      {
+        id: 3,
+        title: 'Terima Kasih BYD Family',
+        message:
+          'Kami terus berkomitmen menghadirkan pengalaman serah terima yang hangat dan berkesan untuk setiap pelanggan.',
+        image: '/testimonials/testimonial3.jpeg',
+        badge: 'BYD Harmony Auto',
+        accentFrom: '#14b8a6',
+        accentTo: '#3b82f6',
+        imagePosition: 'center'
+      },
+      {
+        id: 4,
+        title: 'Terima Kasih BYD Family',
+        message:
+          'Selamat datang di BYD Family! Semoga perjalanan baru ini selalu menyenangkan dan penuh energi positif.',
+        image: '/testimonials/testimonial4.jpeg',
+        badge: 'Indonesia EV Sales No.1',
+        accentFrom: '#9333ea',
+        accentTo: '#ec4899',
+        imagePosition: '50% 35%'
+      },
+      {
+        id: 5,
+        title: 'Terima Kasih BYD Family',
+        message:
+          'Keceriaan pelanggan adalah prioritas kami. Terima kasih telah berbagi momen spesial bersama Harmony Auto.',
+        image: '/testimonials/testimonial5.jpeg',
+        badge: 'BYD Harmony Auto Indonesia',
+        accentFrom: '#34d399',
+        accentTo: '#facc15',
+        imagePosition: 'center'
+      }
+    ],
+    []
+  )
+
+  const [activeIndex, setActiveIndex] = useState(0)
+  const autoplayRef = useRef(null)
+  const totalSlides = sliderItems.length
+  const intervalDuration = 7000
+
+  const goToIndex = useCallback(
+    (newIndex) => {
+      if (totalSlides === 0) return
+      const normalizedIndex = (newIndex + totalSlides) % totalSlides
+      setActiveIndex(normalizedIndex)
+    },
+    [totalSlides]
+  )
+
+  const handleNext = useCallback(() => {
+    goToIndex(activeIndex + 1)
+  }, [activeIndex, goToIndex])
+
+  const handlePrev = useCallback(() => {
+    goToIndex(activeIndex - 1)
+  }, [activeIndex, goToIndex])
+
+  useEffect(() => {
+    if (autoplayRef.current) {
+      clearInterval(autoplayRef.current)
+    }
+
+    autoplayRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % totalSlides)
+    }, intervalDuration)
+
+    return () => {
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current)
+      }
+    }
+  }, [totalSlides, activeIndex])
+
+  const handleManualNavigate = useCallback(
+    (direction) => {
+      direction === 'next' ? handleNext() : handlePrev()
+    },
+    [handleNext, handlePrev]
+  )
+
+  const handleDotClick = useCallback(
+    (index) => {
+      goToIndex(index)
+    },
+    [goToIndex]
+  )
+
+  const activeSlide = sliderItems[activeIndex]
 
   return (
     <section
       id="testimonials"
-      className="section-about relative overflow-hidden bg-[#0a0a0a] text-white"
+      className="relative overflow-hidden bg-[#050505] text-white py-20 px-4 sm:px-8 lg:px-12"
     >
-      <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_85%_15%,rgba(236,173,41,0.4),transparent_50%)]"></div>
-      <div className="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_20%_80%,rgba(88,166,255,0.3),transparent_40%)]"></div>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-x-0 bottom-32 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"></div>
-        <div className="absolute right-1/4 bottom-16 w-px h-48 bg-gradient-to-t from-white/15 to-transparent -rotate-[15deg] origin-bottom"></div>
-      </div>
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 py-20 lg:py-28">
-        <div className="text-center mb-16">
-          <h2 className="premium-heading text-[42px] sm:text-[50px] leading-tight mb-5">
-            Apa Kata Pelanggan Kami
+      <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_85%_15%,rgba(236,173,41,0.35),transparent_60%)]"></div>
+      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_20%_80%,rgba(56,189,248,0.4),transparent_40%)]"></div>
+
+      <div className="relative z-10 max-w-6xl mx-auto space-y-10">
+        <div className="text-center">
+          <p className="tracking-[0.4em] uppercase text-xs text-gray-400 mb-4">
+            Testimoni Pelanggan
+          </p>
+          <h2 className="premium-heading text-[42px] sm:text-[50px] leading-tight mb-4">
+            Apa Kata Keluarga BYD
           </h2>
-          <div className="w-32 h-[3px] bg-gradient-to-r from-[#39b6ff] via-[#ecad29] to-transparent mb-8 mx-auto" />
-          <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
-            Dengarkan pengalaman langsung dari pelanggan yang telah mempercayai BYD sebagai pilihan kendaraan listrik mereka.
+          <div className="w-32 h-[3px] bg-gradient-to-r from-[#39b6ff] via-[#ecad29] to-transparent mx-auto mb-6" />
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            Satu per satu momen serah terima eksklusif kami tampilkan agar Anda dapat merasakan langsung
+            kebahagiaan pelanggan Harmony Auto di seluruh Indonesia.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
-              className="rounded-3xl border border-white/10 bg-gradient-to-r from-black/40 to-black/10 p-6 shadow-lg shadow-black/30 hover:transform hover:scale-105 hover:border-[#ecad29] hover:shadow-[0_25px_55px_rgba(236,173,41,0.35)] transition-all duration-300"
-            >
-              <div className="flex items-center mb-4">
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover mr-4 border-2 border-[#ecad29]/30"
-                />
-                <div>
-                  <h4 className="text-white font-semibold">{testimonial.name}</h4>
-                  <p className="text-gray-400 text-sm">{testimonial.role}</p>
-                </div>
-              </div>
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg
-                    key={i}
-                    className="w-5 h-5 text-[#ecad29] fill-current"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-                <div className="rounded-lg overflow-hidden border border-white/10 hover:border-[#ecad29]/50 transition-colors duration-300">
-                  <img
-                    src={testimonial.carImage}
-                    alt={`Mobil ${testimonial.name}`}
-                    className="w-full h-32 object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
+        <div
+          aria-live="polite"
+          className="relative rounded-[30px] overflow-hidden border border-white/10 bg-gradient-to-r from-white/5 to-transparent shadow-[0_25px_55px_rgba(0,0,0,0.35)]"
+        >
+          <div className="relative aspect-[16/9] w-full">
+            <img
+              src={activeSlide?.image}
+              alt={activeSlide?.title}
+              className="h-full w-full object-cover"
+              loading="lazy"
+              style={{
+                objectPosition: activeSlide?.imagePosition || 'center'
+              }}
+              onError={(e) => {
+                e.currentTarget.src = '/testimonials/testimonial1.jpeg'
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/40"></div>
 
-              {/* Foto Bukti Pembelian */}
-              <div className="mt-4 pt-4 border-t border-white/10">
-              <p className="text-gray-300 italic leading-relaxed">"{testimonial.content}"</p>
+            <div className="absolute inset-0 hidden md:flex flex-col justify-end p-6 sm:p-10 lg:p-12 space-y-4">
+              <div className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-widest text-white/80">
+                <span className="w-2 h-2 rounded-full bg-[#ecad29]" />
+                <span>Delivery Highlight</span>
+              </div>
+              <div>
+                <p className="text-sm text-white/70 mb-2">Harmony Auto Indonesia</p>
+                <h3 className="text-2xl sm:text-4xl font-semibold mb-4">{activeSlide?.title}</h3>
+                <p className="text-base sm:text-lg text-gray-200 max-w-3xl">{activeSlide?.message}</p>
+              </div>
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <span className="rounded-full border border-white/20 bg-black/40 px-4 py-1 text-xs sm:text-sm text-gray-200">
+                  {activeSlide?.badge}
+                </span>
+                <span
+                  className="h-[2px] w-20 rounded-full"
+                  style={{
+                    background: `linear-gradient(90deg, ${activeSlide?.accentFrom}, ${activeSlide?.accentTo})`
+                  }}
+                />
               </div>
             </div>
-          ))}
+
+            <button
+              type="button"
+              aria-label="Slide sebelumnya"
+              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 backdrop-blur border border-white/20 p-3 text-white hover:bg-black/70 transition"
+              onClick={() => handleManualNavigate('prev')}
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M15 6l-6 6 6 6" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              aria-label="Slide berikutnya"
+              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 backdrop-blur border border-white/20 p-3 text-white hover:bg-black/70 transition"
+              onClick={() => handleManualNavigate('next')}
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M9 6l6 6-6 6" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobile Text Content */}
+          <div className="md:hidden p-4 sm:p-6 space-y-3">
+            <div className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+              <span className="w-2 h-2 rounded-full bg-[#ecad29]" />
+              <span>Delivery Highlight</span>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 shadow-lg shadow-black/40 backdrop-blur">
+              <p className="text-xs text-white/70 mb-2">Harmony Auto Indonesia</p>
+              <h3 className="text-2xl font-semibold mb-2">{activeSlide?.title}</h3>
+              <p className="text-base text-gray-200">{activeSlide?.message}</p>
+              <div className="flex flex-wrap items-center gap-3 pt-4">
+                <span className="rounded-full border border-white/20 bg-black/40 px-4 py-1 text-xs text-gray-200">
+                  {activeSlide?.badge}
+                </span>
+                <span
+                  className="h-[2px] w-20 rounded-full"
+                  style={{
+                    background: `linear-gradient(90deg, ${activeSlide?.accentFrom}, ${activeSlide?.accentTo})`
+                  }}
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="text-center">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-black/40 to-black/10 border border-white/10 rounded-full px-6 py-3 shadow-lg shadow-black/30">
-            <svg className="w-5 h-5 text-[#ecad29]" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-            <span className="text-gray-300">Lebih dari 10,000+ pelanggan puas</span>
+        <div className="flex flex-col items-center gap-4">
+          <div className="flex items-center gap-3">
+            {sliderItems.map((item, index) => {
+              const isActive = index === activeIndex
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  aria-label={`Tampilkan testimoni ke-${index + 1}`}
+                  onClick={() => handleDotClick(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    isActive ? 'w-12 bg-[#ecad29]' : 'w-6 bg-white/30 hover:bg-white/60'
+                  }`}
+                />
+              )
+            })}
           </div>
+          <p className="text-sm text-gray-400">
+            {String(activeIndex + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
+          </p>
         </div>
       </div>
     </section>
