@@ -69,7 +69,7 @@ function PromoPrograms() {
             </h1>
 
             <p className="text-gray-300 text-lg md:text-xl font-light">
-              Promo eksklusif BYD Cirebon sesuai informasi resmi program yang sedang berjalan.
+              Promo eksklusif BYD Harmony Cirebon sesuai informasi resmi program yang sedang berjalan.
             </p>
           </div>
 
@@ -89,7 +89,7 @@ function PromoPrograms() {
           <div className="mt-16 flex flex-col md:flex-row items-center justify-between gap-6">
 
             <div className="text-gray-300 text-base font-light">
-              Ingin informasi lebih detail? Tim BYD Cirebon siap membantu Anda merencanakan pembelian.
+              Ingin informasi lebih detail? Tim BYD Harmony Cirebon siap membantu Anda merencanakan pembelian.
             </div>
 
             <div className="flex flex-wrap gap-4">
