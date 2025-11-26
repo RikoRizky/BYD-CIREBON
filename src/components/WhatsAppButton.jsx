@@ -32,7 +32,7 @@ const WhatsAppButton = () => {
         </div>
 
         {/* Tooltip */}
-        <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 hidden group-hover:flex whitespace-nowrap bg-black text-white text-xs font-semibold px-2 py-1 rounded">
+        <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 hidden group-hover:flex whitespace-nowrap bg-black/40 backdrop-blur-sm text-white text-xs font-semibold px-2 py-1 rounded">
           Hubungi Kami
         </span>
       </div>
