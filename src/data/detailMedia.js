@@ -1,12 +1,12 @@
 export const colorOptionsByCar = {
   'byd-dolphin': [
     { name: 'Urban Grey', value: '#424b4f', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Essential_HarbourGrey.png' },
-    { name: 'Coral Pink', value: '#bd0ac6ff', imageKey: 'warna/no.jpg' },
-    { name: 'Sand White', value: '#ece0b9', imageKey: 'warna/no.jpg' },
-    { name: 'Maldive Purple', value: '#742ec7', imageKey: 'warna/no.jpg' },
+    { name: 'Coral Pink', value: '#bd0ac6ff', imageKey: 'warna/no.png' },
+    { name: 'Sand White', value: '#ece0b9', imageKey: 'warna/no.png' },
+    { name: 'Maldive Purple', value: '#742ec7', imageKey: 'warna/no.png' },
     { name: 'Ski White + Urban Grey', value: '#c7cdd3', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_SkyWhite_HarbourGrey.png', classes: ['Premium'] },
     { name: 'Coral pink + Urban Grey', value: '#bd0ac6ff', imageKey: 'warna/BYD_DOLPHIN/DOLPHIN_Premium_CoralPink_UrbanGrey.png', classes: ['Premium']},
-    { name: 'Atlantis  Grey + Delan Black', value: '#4f3d8b', imageKey: 'warna/no.jpg', classes: ['Premium']}
+    { name: 'Atlantis  Grey + Delan Black', value: '#4f3d8b', imageKey: 'warna/no.png', classes: ['Premium']}
   ],
   'byd-atto-1': [
     { name: 'Sprout Green', value: '#6fa256', imageKey: 'warna/BYD_ATTO1/ATTO1_Sprout_Green.png' },
