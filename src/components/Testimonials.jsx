@@ -7,7 +7,7 @@ function Testimonials() {
         id: 1,
         title: 'Terima Kasih BYD Family',
         message:
-          'Telah mempercayai BYD Harmony Auto sebagai pilihan mobil listrik anda. Bersama kita melangkah menuju masa depan yang lebih hijau dan berkelanjutan.',
+          'Telah mempercayai BYD Harmony Cirebon sebagai pilihan mobil listrik anda. Bersama kita melangkah menuju masa depan yang lebih hijau dan berkelanjutan.',
         image: '/testimonials/testimonial1.jpeg',
         badge: 'Mobil Listrik Terbaik',
         imagePosition: 'center'
@@ -16,7 +16,7 @@ function Testimonials() {
         id: 2,
         title: 'Thank You',
         message:
-          'Thank you for choosing DENZA Harmony Auto as your trusted driving companion. #YourTrustedAutoPartner',
+          'Thank you for choosing DENZA Harmony Cirebon as your trusted driving companion. #YourTrustedAutoPartner',
         image: '/testimonials/testimonial2.jpeg',
         badge: 'The Best Electric Car',
         imagePosition: 'center'
@@ -43,7 +43,7 @@ function Testimonials() {
         id: 5,
         title: 'Terima Kasih BYD Family',
         message:
-          'Keceriaan pelanggan adalah prioritas kami. Terima kasih telah berbagi momen spesial bersama Harmony Auto.',
+          'Keceriaan pelanggan adalah prioritas kami. Terima kasih telah berbagi momen spesial bersama Harmony Cirebon.',
         image: '/testimonials/testimonial5.jpeg',
         badge: 'Keceriaan Pelanggan',
         imagePosition: 'center'
