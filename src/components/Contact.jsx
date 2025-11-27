@@ -214,7 +214,7 @@ function Contact() {
                 </div>
                 <div>
                   <p className="text-gray-400 text-xs uppercase tracking-wide font-semibold mb-1">Email</p>
-                  <p className="text-white font-bold text-lg break-all">Bydcirebon.official@gmail.com</p>
+                  <p className="text-white font-bold text-lg break-all">bydcirebon.official@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start group">
