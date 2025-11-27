@@ -76,7 +76,7 @@ export const priceListData = [
     id: 'denza-d9',
     name: 'DENZA D9',
     classes: [
-      { name: 'Comfort', price: 'RP 950.000.000', contactWhatsApp: true },
+      { name: 'Comfort', price: 'RP 957.000.000', contactWhatsApp: true },
       { name: 'Premium', price: 'RP 1.050.000.000', contactWhatsApp: true },
       { name: 'Luxury', price: 'RP 1.150.000.000', contactWhatsApp: true }
     ],
