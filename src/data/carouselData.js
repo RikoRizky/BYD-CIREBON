@@ -9,14 +9,14 @@ export const carouselData = [
   {
     place: 'BYD Harmony Cirebon',
     title: 'BYD',
-    title2: 'ATTO3',
+    title2: 'ATTO 3',
     description: 'BYD ATTO 3: Crossover listrik dengan standar keamanan tinggi dan didukung oleh BYD Blade Battery. Nikmati kenyamanan, efisiensi superior, dan fitur V2L sebagai stasiun daya mobile.',
     image: '/images/atto3.jpg'
   },
   {
     place: 'BYD Harmony Cirebon',
     title: 'BYD',
-    title2: 'SEALION',
+    title2: 'SEALION 7',
     description: 'Eksplorasi Tak Terbatas dengan BYD SEALION. Perpaduan sempurna antara estetika modern, teknologi terkini, dan pengalaman berkendara premium yang tak tertandingi.',
     image: '/images/sealion7.jpg'
   },
@@ -30,14 +30,14 @@ export const carouselData = [
   {
     place: 'BYD Harmony Cirebon',
     title: 'BYD',
-    title2: 'ATTO1',
+    title2: 'ATTO 1',
     description: 'BYD ATTO 1: Mobil kompak dengan Kamera Belakang dan 3 Radar. Tersedia dalam varian Dynamic Standard Range dan Premium Long Range , dengan opsi warna seperti Sprout Green dan Apricity White.',
     image: '/images/BYDATTO1.jpg'
   },
   {
     place: 'BYD Harmony Cirebon',
     title: 'BYD',
-    title2: 'DENZA',
+    title2: 'DENZA D9',
     description: 'DENZA D9: MPV 7-seater all-electric yang mengubah permainan mobilitas mewah. Kombinasi motor 8-in-1 dan Blade Battery untuk pengalaman berkendara luar biasa. Menawarkan jangkauan listrik impresif hingga 600 km.',
     image: '/images/BYDDENZA.jpg'
   },
