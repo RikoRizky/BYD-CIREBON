@@ -7,43 +7,43 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://bydcirebon.id/units/byd-atto1</loc>
+    <loc>https://www.bydcirebon.id/detail/byd-atto-1</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bydcirebon.id/units/byd-atto3</loc>
+    <loc>https://www.bydcirebon.id/detail/byd-atto-3</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bydcirebon.id/units/byd-denzad9</loc>
+    <loc>https://www.bydcirebon.id/detail/denza-d9</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bydcirebon.id/units/byd-dolphin</loc>
+    <loc>https://www.bydcirebon.id/detail/byd-dolphin</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bydcirebon.id/units/byd-m6</loc>
+    <loc>https://www.bydcirebon.id/detail/byd-m6</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bydcirebon.id/units/byd-seal</loc>
+    <loc>https://www.bydcirebon.id/detail/byd-seal</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bydcirebon.id/units/byd-sealion7</loc>
+    <loc>https://www.bydcirebon.id/detail/byd-sealion-7</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -61,21 +61,9 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bydcirebon.id/units</loc>
+    <loc>https://www.bydcirebon.id/promo-program</loc>
     <lastmod>2025-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bydcirebon.id/promo</loc>
-    <lastmod>2025-11-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://bydcirebon.id/faq</loc>
-    <lastmod>2025-11-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
 </urlset>
