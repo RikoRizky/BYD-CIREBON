@@ -100,7 +100,7 @@ function Footer() {
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
                 <span className="text-gray-400 text-base">
-                  Jl. DR. Cipto Mangunkusumo No. 115, Pekiringan, Cirebon
+                  Jl. DR. Cipto Mangunkusumo No. 115, Pekiringan, Kec. Kesambi, Kota Cirebon, Jawa Barat 45131
                 </span>
               </div>
 
