@@ -11,6 +11,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import DetailUnit from './components/DetailUnit'
 import PromoPrograms from './components/PromoPrograms'
+import NotFound from './components/NotFound'
 import WhatsAppButton from './components/WhatsAppButton'
 
 function HomePage() {
@@ -69,6 +70,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/detail/:carId" element={<DetailUnit />} />
         <Route path="/promo-program" element={<PromoPrograms />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <WhatsAppButton />
     </BrowserRouter>
