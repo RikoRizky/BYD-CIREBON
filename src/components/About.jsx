@@ -142,7 +142,7 @@ function About() {
   return (
     <section
       id="about"
-      className="section-about relative overflow-hidden bg-[#04050c] text-white"
+      className="section-about relative overflow-hidden bg-[#04050c] text-white py-20 lg:py-28 px-4 sm:px-8 lg:px-12"
     >
       {previewImage && (
         <div
@@ -172,7 +172,7 @@ function About() {
         <div className="absolute inset-x-0 top-32 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
         <div className="absolute left-1/3 top-12 w-px h-64 bg-gradient-to-b from-white/20 to-transparent rotate-[22deg] origin-top"></div>
       </div>
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 py-20 lg:py-28">
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid gap-12 lg:gap-16 lg:grid-cols-[1.05fr_1fr] items-start">
           <div className="relative order-2 lg:order-1 flex flex-col items-center lg:items-start lg:self-center">
             <div className="absolute -top-12 -left-12 hidden lg:block">
