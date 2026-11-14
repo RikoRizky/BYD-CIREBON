@@ -118,12 +118,13 @@ function DetailUnit() {
 
   const selectedDisplayImage =
     selectedColor && selectedColor.imageKey
-      ? (selectedColor.imageKey.startsWith('/')
+      ? (selectedColor.imageKey.startsWith('http://') || selectedColor.imageKey.startsWith('https://') || selectedColor.imageKey.startsWith('/')
           ? selectedColor.imageKey
           : `/${selectedColor.imageKey}`)
       : car.image
 
-  const interiorImages = interiorImagesByCar[car.id] || [car.image]
+  const hasCustomInteriors = Array.isArray(interiorImagesByCar[car.id]) && interiorImagesByCar[car.id].length > 0
+  const interiorImages = hasCustomInteriors ? interiorImagesByCar[car.id] : [car.image]
   const [interiorIndex, setInteriorIndex] = useState(0)
   const autoSlideIntervalRef = useRef(null)
   const resumeTimeoutRef = useRef(null)
@@ -143,6 +144,8 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
 
   // Auto-slide carousel
   useEffect(() => {
+    if (!hasCustomInteriors || interiorImages.length <= 1) return
+
     const startAutoSlide = () => {
       if (autoSlideIntervalRef.current) {
         clearInterval(autoSlideIntervalRef.current)
@@ -163,7 +166,7 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
         clearTimeout(resumeTimeoutRef.current)
       }
     }
-  }, [interiorImages.length])
+  }, [interiorImages.length, hasCustomInteriors])
 
   // Handle click pada gambar interior premium
   const handleInteriorImageClick = (index) => {
@@ -431,6 +434,50 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
         'Double Panoramic Sunroof',
         'Tri-Zone Independent Climate Control',
         'Level 2+ ADAS Intelligent Driving Assistance'
+      ]
+    },
+    'byd-m6-dmi': {
+      engine: '1.5L Xiaoyun Hybrid Engine + EHS Electric Motor (Super DM-i)',
+      power: '160 kW (218 PS) Combined System',
+      torque: '300+ Nm Combined',
+      battery: 'Blade Battery DM-i Hybrid',
+      range: 'Combined Range 1,000+ km',
+      charging: 'AC Charging & DC Fast Charging',
+      acceleration: '0-100 km/h dalam 8.2 detik',
+      topSpeed: '180 km/h',
+      dimensions: '4,710 x 1,810 x 1,690 mm',
+      weight: '1,850 kg',
+      seats: '6 - 7',
+      features: [
+        'Super DM-i Hybrid Ultra-Low Fuel Consumption',
+        '12.8" Rotating Touchscreen with BYD DiLink',
+        '360° Panoramic View Camera',
+        'Leather Upholstery with Ergonomic Seating',
+        'Panoramic Skylight Roof',
+        'V2L (Vehicle to Load) External Power Supply',
+        'Full ADAS Safety & Driving Assistance'
+      ]
+    },
+    'denza-z9gt': {
+      engine: 'Tri-Motor Independent e4 Platform (AWD)',
+      power: '710 kW (965 HP)',
+      torque: '1,000+ Nm',
+      battery: '100.1 kWh BYD Blade Battery',
+      range: '630 km (CLTC)',
+      charging: 'Ultra Fast Dual-Gun Charging',
+      acceleration: '0-100 km/h dalam 3.4 detik',
+      topSpeed: '240 km/h',
+      dimensions: '5,180 x 1,990 x 1,500 mm',
+      weight: '2,875 kg',
+      seats: '5',
+      features: [
+        'e4 Platform with Independent 3-Motor Drive',
+        'Compass Turn & Crab Walk Rear Steering',
+        'Active Aerodynamic Lift Rear Spoiler',
+        'Air Suspension with CDC Damping',
+        'Devialet Luxury Audio System',
+        'Dual Integrated In-Car Refrigerators',
+        'Nappa Leather Heated & Massage Seats'
       ]
     }
   }
@@ -935,23 +982,113 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
           'Smart Glass Partition',
           'Level 2+ ADAS'
         ]
+      }
+    },
+    'byd-m6-dmi': {
+      'Classic Standard': {
+        specs: {
+          engine: '1.5L Hybrid DM-i (FWD)',
+          power: '160 kW Combined',
+          torque: '300 N.m',
+          battery: 'Blade Battery DM-i',
+          range: '1,000+ km Combined',
+          seats: '7'
+        },
+        features: [
+          '12.8" Touchscreen',
+          'Super DM-i Hybrid Efficiency',
+          'LED Headlights & DRL',
+          'Digital AC Control',
+          'Reverse Camera'
+        ]
       },
+      'Classic Dynamic': {
+        specs: {
+          engine: '1.5L Hybrid DM-i (FWD)',
+          power: '160 kW Combined',
+          torque: '300 N.m',
+          battery: 'Blade Battery DM-i',
+          range: '1,000+ km Combined',
+          seats: '7'
+        },
+        features: [
+          'Leatherette Seats',
+          'Keyless Entry & Start',
+          'Cruise Control',
+          '17" Alloy Wheels',
+          '6 Airbags'
+        ]
+      },
+      'Cross Advanced': {
+        specs: {
+          engine: '1.5L Hybrid DM-i (FWD)',
+          power: '160 kW Combined',
+          torque: '300 N.m',
+          battery: 'Blade Battery DM-i',
+          range: '1,000+ km Combined',
+          seats: '7'
+        },
+        features: [
+          'Crossover Styling & Roof Rails',
+          '12.8" Rotating Screen',
+          '360° Panoramic Camera',
+          'Wireless Charging',
+          'V2L Function'
+        ]
+      },
+      'Cross Superior 7 Seater': {
+        specs: {
+          engine: '1.5L Hybrid DM-i (FWD)',
+          power: '160 kW Combined',
+          torque: '300 N.m',
+          battery: 'Blade Battery DM-i',
+          range: '1,000+ km Combined',
+          seats: '7'
+        },
+        features: [
+          'Panoramic Glass Roof',
+          'Power Tailgate',
+          'Ventilated Front Seats',
+          'Full ADAS Suite',
+          '7-Seater Ergonomic Layout'
+        ]
+      },
+      'Cross Superior Captain Seat': {
+        specs: {
+          engine: '1.5L Hybrid DM-i (FWD)',
+          power: '160 kW Combined',
+          torque: '300 N.m',
+          battery: 'Blade Battery DM-i',
+          range: '1,000+ km Combined',
+          seats: '6'
+        },
+        features: [
+          'Executive Captain Seat Row 2 with Armrest',
+          'Ottoman Leg Support',
+          'Panoramic Glass Roof',
+          'Ventilated Seats',
+          'Power Tailgate'
+        ]
+      }
+    },
+    'denza-z9gt': {
       Z9GT: {
-        contactWhatsApp: true,
         specs: {
           engine: 'Tri-Motor AWD (e4 Platform)',
           power: '710 kW (965 HP)',
           torque: '1,000+ Nm',
           battery: '100.1 kWh BYD Blade',
           range: '630 km (CLTC)',
+          acceleration: '0-100 km/h dalam 3.4 s',
           seats: '5'
         },
         features: [
-          'e4 Platform with Independent 3-Motor Drive',
-          'Compass Rear-Wheel Steering & Crab Walk',
-          'Carbon Ceramic High-Performance Brakes',
-          'Air Suspension & Active Aerodynamic Rear Wing',
-          'Devialet Luxury Audio System'
+          'e4 Tri-Motor Independent Drive',
+          'Rear-Wheel Steering & Compass Turn',
+          'Air Suspension with CDC Damping',
+          'Active Aerodynamic Rear Spoiler',
+          'Devialet Cinema Sound System',
+          'Dual In-Car Refrigerators'
         ]
       }
     }
@@ -1024,7 +1161,7 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 premium-heading">Harga & Tipe</h2>
               <div className="w-full max-w-24 h-1 bg-gradient-to-r from-[#ecad29] via-[#d99a20] to-[#ecad29] mb-6 rounded-full"></div>
-              {car.classes.length > 1 && (
+              {car.classes && car.classes.length > 0 && (
                 <div className="mb-4">
                   <label className="block text-gray-300 text-sm font-medium mb-2">Pilih Tipe :</label>
                   <select
@@ -1283,8 +1420,16 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
                 </h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-[#ecad29] to-[#d99a20] mb-4 rounded-full"></div>
                 <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-                  Pilih varian warna terbaik untuk menghadirkan tampilan <span className="font-semibold text-[#ecad29]">{car.name}</span>{' '}
-                  yang semakin menonjol melalui harmoni warna penuh gaya.
+                  {finalDisplayedColors.length > 0 ? (
+                    <>
+                      Pilih varian warna terbaik untuk menghadirkan tampilan <span className="font-semibold text-[#ecad29]">{car.name}</span>{' '}
+                      yang semakin menonjol melalui harmoni warna penuh gaya.
+                    </>
+                  ) : (
+                    <>
+                      Desain eksterior futuristik dan elegan <span className="font-semibold text-[#ecad29]">{car.name}</span> menghadirkan estetika modern berkelas dengan aerodinamika terbaik di kelasnya.
+                    </>
+                  )}
                 </p>
               </div>
               {selectedColor && (
@@ -1337,16 +1482,20 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
                 </p>
               )}
 
-              <p className="text-[11px] text-gray-400 font-light leading-tight">
-                *Pilihan warna mungkin sedikit berbeda dengan tampilan warna asli pada unit kendaraan.
-              </p>
+              {finalDisplayedColors.length > 0 && (
+                <p className="text-[11px] text-gray-400 font-light leading-tight">
+                  *Pilihan warna mungkin sedikit berbeda dengan tampilan warna asli pada unit kendaraan.
+                </p>
+              )}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Interior section - grid */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 pb-6">
+      {hasCustomInteriors && (
+        <>
+          {/* Interior section - grid */}
+          <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 pb-6">
         <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 via-black/35 to-black/70 backdrop-blur-lg p-8 md:p-10 shadow-[0_30px_60px_rgba(0,0,0,0.45)] transition-all duration-500 hover:border-[#ecad29]/80">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
             <div>
@@ -1535,6 +1684,8 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
           </div>
         </div>
       </div>
+        </>
+      )}
 
         <div className="footer-gradient-line"></div>
         <Footer />

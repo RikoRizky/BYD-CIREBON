@@ -56,7 +56,7 @@ function PriceList() {
             return (
               <div
                 key={index}
-                className={`rounded-3xl overflow-hidden group border border-white/10 bg-gradient-to-b from-white/5 via-black/40 to-black/60 backdrop-blur-lg shadow-[0_20px_45px_rgba(0,0,0,0.45)] transition-all duration-500 hover:-translate-y-2 hover:border-[#ecad29]/80 hover:shadow-[0_25px_55px_rgba(236,173,41,0.35)] ${
+                className={`flex flex-col h-full rounded-3xl overflow-hidden group border border-white/10 bg-gradient-to-b from-white/5 via-black/40 to-black/60 backdrop-blur-lg shadow-[0_20px_45px_rgba(0,0,0,0.45)] transition-all duration-500 hover:-translate-y-2 hover:border-[#ecad29]/80 hover:shadow-[0_25px_55px_rgba(236,173,41,0.35)] ${
                   car.fullWidth ? 'md:col-span-2 lg:col-span-1' : ''
                 }`}
               >
@@ -67,44 +67,48 @@ function PriceList() {
                     className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/80" />
-                  <div className="absolute top-4 right-4">
-                    <div className="bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
-                      <span className="text-xs font-semibold text-[#ecad29] uppercase tracking-[0.25em]">Baru</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-8 bg-gradient-to-br from-[#090b14]/90 via-[#0e0f1c]/90 to-[#0f111f]/90">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 premium-heading car-name">{car.name}</h3>
-                  
-                  {car.classes.length > 1 && (
-                    <div className="mb-6">
-                      <label className="block text-gray-300 text-sm font-semibold mb-3 uppercase tracking-wide">Pilih Tipe :</label>
-                      <select
-                        value={selectedClassIndex}
-                        onChange={(e) => handleClassChange(car.id, parseInt(e.target.value))}
-                        className="w-full px-4 py-3 bg-gray-800/80 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#ecad29] focus:border-[#ecad29] transition-all backdrop-blur-sm font-medium"
-                      >
-                        {car.classes.map((carClass, idx) => (
-                          <option key={idx} value={idx}>
-                            {carClass.name}
-                          </option>
-                        ))}
-                      </select>
+                  {car.isNew && (
+                    <div className="absolute top-4 right-4">
+                      <div className="bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+                        <span className="text-xs font-semibold text-[#ecad29] uppercase tracking-[0.25em]">Baru</span>
+                      </div>
                     </div>
                   )}
-
-                  <div className="mb-4 pb-4 border-b border-white/5">
-                    <p className="text-transparent bg-clip-text bg-gradient-to-br from-[#ecad29] via-[#f7d382] to-[#d39412] text-3xl md:text-4xl font-bold mb-2">
-                      {displayPrice}
-                    </p>
-                    {selectedClass && (
-                      <p className="text-[#ecad29] text-sm font-semibold uppercase tracking-wide">Tipe : {selectedClass.name}</p>
+                </div>
+                <div className="p-8 bg-gradient-to-br from-[#090b14]/90 via-[#0e0f1c]/90 to-[#0f111f]/90 flex flex-col flex-1 justify-between">
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 premium-heading car-name">{car.name}</h3>
+                    
+                    {car.classes && car.classes.length > 0 && (
+                      <div className="mb-6">
+                        <label className="block text-gray-300 text-sm font-semibold mb-3 uppercase tracking-wide">Pilih Tipe :</label>
+                        <select
+                          value={selectedClassIndex}
+                          onChange={(e) => handleClassChange(car.id, parseInt(e.target.value))}
+                          className="w-full px-4 py-3 bg-gray-800/80 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#ecad29] focus:border-[#ecad29] transition-all backdrop-blur-sm font-medium"
+                        >
+                          {car.classes.map((carClass, idx) => (
+                            <option key={idx} value={idx}>
+                              {carClass.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
                     )}
-                    <p className="text-gray-500 text-xs mt-2">* OTR Cirebon (IDR)</p>
+
+                    <div className="mb-4 pb-4 border-b border-white/5">
+                      <p className="text-transparent bg-clip-text bg-gradient-to-br from-[#ecad29] via-[#f7d382] to-[#d39412] text-3xl md:text-4xl font-bold mb-2">
+                        {displayPrice}
+                      </p>
+                      {selectedClass && (
+                        <p className="text-[#ecad29] text-sm font-semibold uppercase tracking-wide">Tipe : {selectedClass.name}</p>
+                      )}
+                      <p className="text-gray-500 text-xs mt-2">* OTR Cirebon (IDR)</p>
+                    </div>
                   </div>
                   <button 
                     onClick={() => handleDetailClick(car)}
-                    className="w-full bg-gradient-to-r from-[#ecad29] to-[#d99a20] hover:from-[#ffd181] hover:to-[#ecad29] text-black font-semibold py-3 px-6 rounded-2xl transition-all duration-300 shadow-lg shadow-[#ecad29]/30"
+                    className="w-full bg-gradient-to-r from-[#ecad29] to-[#d99a20] hover:from-[#ffd181] hover:to-[#ecad29] text-black font-semibold py-3 px-6 rounded-2xl transition-all duration-300 shadow-lg shadow-[#ecad29]/30 mt-2"
                   >
                     Detail Unit
                   </button>

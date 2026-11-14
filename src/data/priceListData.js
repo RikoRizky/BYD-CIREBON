@@ -1,5 +1,33 @@
 export const priceListData = [
   {
+    id: 'byd-m6-dmi',
+    name: 'BYD M6 DM-i',
+    isNew: true,
+    classes: [
+      { name: 'Classic Standard', price: 'RP 306.800.000' },
+      { name: 'Classic Dynamic', price: 'RP 326.800.000' },
+      { name: 'Cross Advanced', price: 'RP 368.800.000' },
+      { name: 'Cross Superior 7 Seater', price: 'RP 388.800.000' },
+      { name: 'Cross Superior Captain Seat', price: 'RP 398.800.000' }
+    ],
+    defaultPrice: 'RP 306.800.000',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/2024_BYD_M6_(front).jpg?width=1200',
+    description: 'BYD M6 DM-i adalah MPV keluarga bertenaga hybrid Super DM-i (Dual Mode-intelligent) dengan efisiensi bahan bakar luar biasa dan kenyamanan premium.',
+    brochure: '/brochures/BROCHURE BYD M6.pdf'
+  },
+  {
+    id: 'denza-z9gt',
+    name: 'DANZA Z9GT',
+    isNew: true,
+    classes: [
+      { name: 'Z9GT', price: 'RP 2.250.000.000' }
+    ],
+    defaultPrice: 'RP 2.250.000.000',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/2024_Denza_Z9_GT_(front).jpg?width=1200',
+    description: 'Denza Z9GT adalah luxury shooting brake elektrik flagship dengan performa luar biasa, teknologi e4 tri-motor independen, dan kemewahan tingkat tinggi.',
+    brochure: '/brochures/DENZA D9 eBrosure.pdf'
+  },
+  {
     id: 'byd-dolphin',
     name: 'BYD DOLPHIN',
     classes: [
@@ -70,7 +98,7 @@ export const priceListData = [
     ],
     defaultPrice: 'RP 402.000.000',
     image: '/images/m6.jpg',
-    description: 'BYD M6 adalah MPV listrik yang ideal untuk keluarga dengan fitur lengkap dan efisien.',
+    description: 'BYD M6 EV adalah MPV listrik yang ideal untuk keluarga dengan fitur lengkap dan efisiensi tinggi.',
     brochure: '/brochures/BROCHURE BYD M6.pdf'
   },
   {
@@ -80,14 +108,11 @@ export const priceListData = [
       { name: 'New D9 (730 KM)', price: 'RP 1.080.000.000' },
       { name: 'Comfort', price: 'RP 957.000.000', contactWhatsApp: true },
       { name: 'Premium', price: 'RP 1.050.000.000', contactWhatsApp: true },
-      { name: 'Luxury', price: 'RP 1.150.000.000', contactWhatsApp: true },
-      { name: 'Z9GT', price: 'RP 2.250.000.000' }
+      { name: 'Luxury', price: 'RP 1.150.000.000', contactWhatsApp: true }
     ],
     defaultPrice: 'RP 1.080.000.000',
     image: '/images/BYDDENZA.jpg',
     description: 'Denza D9 adalah MPV mewah dengan teknologi canggih dan kenyamanan premium untuk keluarga modern.',
-    fullWidth: true,
     brochure: '/brochures/DENZA D9 eBrosure.pdf'
   }
 ];
-
