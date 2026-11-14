@@ -58,7 +58,10 @@ function DetailUnit() {
     // If selected class is premium-like, restrict to premium-named colors or explicitly allowed ones
     if (isSelectedPremium) {
       if (Array.isArray(c.classes) && c.classes.length > 0) {
-        return c.classes.map((x) => x.toLowerCase()).includes(selectedClassName)
+        return c.classes.some((x) => {
+          const lower = x.toLowerCase()
+          return selectedClassName.includes(lower) || lower.includes(selectedClassName)
+        })
       }
       return name.startsWith('premium')
     }
@@ -66,7 +69,10 @@ function DetailUnit() {
     // selected class is not premium-like
     if (Array.isArray(c.classes) && c.classes.length > 0) {
       // show only if explicitly allowed for this class
-      return c.classes.map((x) => x.toLowerCase()).includes(selectedClassName)
+      return c.classes.some((x) => {
+        const lower = x.toLowerCase()
+        return selectedClassName.includes(lower) || lower.includes(selectedClassName)
+      })
     }
 
     // normal color without classes -> show
@@ -258,192 +264,173 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
   // Spesifikasi detail untuk setiap mobil
   const specifications = {
     'byd-dolphin': {
-      engine: 'Electric Motor',
-      power: '70 kW (94 HP)',
-      torque: '180 Nm',
-      battery: '44.9 kWh',
-      range: '405 km',
-      charging: 'DC Fast Charge: 0-80% dalam 30 menit',
-      acceleration: '0-100 km/h dalam 7.3 detik',
-      topSpeed: '150 km/h',
-      dimensions: '4,290 x 1,770 x 1,570 mm',
-      weight: '1,420 kg',
-      seats: '5',
-      features: [
-        '10.1" Rotating Touchscreen',
-        'Dirac Audio System',
-        '360° Camera',
-        'Keyless Entry & Start',
-        'LED Headlights',
-        'Panoramic Sunroof',
-        'Wireless Charging',
-        'Bluetooth Connectivity'
-      ]
-    },
-    'byd-atto-1': {
-      engine: 'Electric Motor',
-      power: '70 kW (94 HP)',
-      torque: '180 Nm',
-      battery: '32 kWh',
-      range: '305 km',
-      charging: 'DC Fast Charge: 0-80% dalam 30 menit',
-      acceleration: '0-100 km/h dalam 9.8 detik',
-      topSpeed: '130 km/h',
-      dimensions: '4,465 x 1,875 x 1,625 mm',
-      weight: '1,320 kg',
-      seats: '5',
-      features: [
-        '10.1" Touchscreen',
-        '6 Speaker Audio System',
-        'Rear Camera',
-        'Keyless Entry',
-        'LED Headlights',
-        'Manual AC',
-        'USB Charging Ports',
-        'Bluetooth Connectivity'
-      ]
-    },
-    'byd-atto-3': {
-      engine: 'Electric Motor',
-      power: '150 kW (201 HP)',
-      torque: '310 Nm',
-      battery: '60.48 kWh',
-      range: '480 km',
-      charging: 'DC Fast Charge: 0-80% dalam 30 menit',
-      acceleration: '0-100 km/h dalam 7.3 detik',
+      engine: 'Permanent Magnet Synchronous Motor (FWD)',
+      power: '70 - 150 kW (95 - 204 PS)',
+      torque: '180 - 310 Nm',
+      battery: '44.9 - 60.48 kWh BYD Blade Battery',
+      range: '410 - 490 km (NEDC)',
+      charging: 'DC Fast Charge: 30-80% dalam 30 menit',
+      acceleration: '0-100 km/h dalam 7.0 - 12.3 detik',
       topSpeed: '160 km/h',
-      dimensions: '4,455 x 1,875 x 1,615 mm',
-      weight: '1,750 kg',
+      dimensions: '4,290 x 1,770 x 1,570 mm',
+      weight: '1,420 - 1,520 kg',
       seats: '5',
       features: [
         '12.8" Rotating Touchscreen',
         'Dirac Audio System',
         '360° Camera',
         'Keyless Entry & Start',
+        'LED Headlights & DRL',
+        'Panoramic Glass Roof',
+        'Wireless Charging',
+        'BYD DiLink Intelligent Connection'
+      ]
+    },
+    'byd-atto-1': {
+      engine: 'Permanent Magnet Synchronous Motor (FWD)',
+      power: '55 kW (75 PS)',
+      torque: '135 Nm',
+      battery: '30.08 - 38.88 kWh BYD Blade Battery',
+      range: '300 - 380 km (NEDC)',
+      charging: 'DC Fast Charge 30-40 kW: 30-80% dalam 30 menit',
+      acceleration: '0-50 km/h dalam 4.9 detik',
+      topSpeed: '130 km/h',
+      dimensions: '3,925 x 1,720 x 1,590 mm',
+      weight: '1,225 - 1,280 kg',
+      seats: '5',
+      features: [
+        '10.1" Rotating Touchscreen',
+        '7" Digital Instrument Panel',
+        'Rear Camera + 3 Radar Parkir',
+        'Smart Keyless Entry',
+        'LED Headlights',
+        'Wireless Charging (Premium)',
+        'BYD DiLink OS with Apple CarPlay/Android Auto',
+        '6 Airbags & e-Platform 3.0'
+      ]
+    },
+    'byd-atto-3': {
+      engine: 'Permanent Magnet Synchronous Motor (FWD)',
+      power: '150 kW (204 PS)',
+      torque: '310 Nm',
+      battery: '49.92 - 60.48 kWh BYD Blade Battery',
+      range: '410 - 480 km (NEDC)',
+      charging: 'DC Fast Charge 70-80 kW: 0-80% dalam 45 menit',
+      acceleration: '0-100 km/h dalam 7.3 detik',
+      topSpeed: '160 km/h',
+      dimensions: '4,455 x 1,875 x 1,615 mm',
+      weight: '1,750 kg',
+      seats: '5',
+      features: [
+        '15.6" / 12.8" Rotating Touchscreen',
+        'Dirac Audio System',
+        '360° Camera',
+        'Keyless Entry & Start',
         'LED Matrix Headlights',
         'Panoramic Sunroof',
-        'Wireless Charging',
+        'Wireless Phone Charging',
         'NFC Key Card',
         'V2L (Vehicle to Load)',
-        'Heat Pump System'
+        'Full ADAS & Adaptive Cruise Control'
       ]
     },
     'byd-seal': {
-      engine: 'Dual Electric Motors',
-      power: '390 kW (523 HP)',
-      torque: '670 Nm',
-      battery: '82.5 kWh',
-      range: '700 km',
-      charging: 'DC Fast Charge: 0-80% dalam 26 menit',
-      acceleration: '0-100 km/h dalam 3.8 detik',
+      engine: 'Single Motor RWD / Dual Motor AWD',
+      power: '230 - 390 kW (313 - 530 PS)',
+      torque: '360 - 670 Nm',
+      battery: '82.56 kWh BYD Blade Battery',
+      range: '580 - 650 km (NEDC)',
+      charging: 'DC Fast Charge hingga 150 kW: 30-80% dalam 26 menit',
+      acceleration: '0-100 km/h dalam 3.8 - 5.9 detik',
       topSpeed: '180 km/h',
       dimensions: '4,800 x 1,875 x 1,460 mm',
-      weight: '2,150 kg',
+      weight: '2,055 - 2,150 kg',
       seats: '5',
       features: [
         '15.6" Rotating Touchscreen',
-        'Dirac Premium Audio (12 Speakers)',
-        '360° Camera + Front Camera',
+        'Dynaudio 12 Speaker Premium Audio',
+        '360° Camera & Head-up Display (HUD)',
         'Keyless Entry & Start',
-        'Matrix LED Headlights',
         'Panoramic Glass Roof',
-        'Wireless Charging',
+        'Dual Wireless Phone Charging',
         'NFC Key Card',
         'V2L (Vehicle to Load)',
-        'Heat Pump System',
-        'Adaptive Cruise Control',
-        'Lane Keep Assist',
-        'Blind Spot Detection'
+        'iTAC (Intelligent Torque Adaptation)',
+        'Ventilated & Heated Leather Seats',
+        'Full Level 2 ADAS Safety Suite'
       ]
     },
     'byd-sealion-7': {
-      engine: 'Dual Electric Motors',
-      power: '275 kW (369 HP)',
-      torque: '500 Nm',
-      battery: '82.5 kWh',
-      range: '600 km',
-      charging: 'DC Fast Charge: 0-80% dalam 30 menit',
-      acceleration: '0-100 km/h dalam 4.9 detik',
-      topSpeed: '180 km/h',
-      dimensions: '4,830 x 1,925 x 1,720 mm',
-      weight: '2,350 kg',
-      seats: '7',
+      engine: 'Single Motor RWD / Dual Motor AWD',
+      power: '230 - 390 kW (313 - 530 PS)',
+      torque: '380 - 690 Nm',
+      battery: '82.56 kWh BYD Blade Battery',
+      range: '542 - 567 km (WLTP) / 650 km (NEDC)',
+      charging: 'DC Ultra Fast Charge hingga 230 kW',
+      acceleration: '0-100 km/h dalam 4.5 - 6.7 detik',
+      topSpeed: '215 km/h',
+      dimensions: '4,830 x 1,925 x 1,620 mm',
+      weight: '2,225 - 2,340 kg',
+      seats: '5',
       features: [
         '15.6" Rotating Touchscreen',
-        'Dirac Premium Audio (12 Speakers)',
-        '360° Camera',
-        'Keyless Entry & Start',
-        'Matrix LED Headlights',
-        'Panoramic Sunroof',
-        'Wireless Charging',
-        'NFC Key Card',
+        'Dynaudio 12 Speaker Audio',
+        '360° Surround View Camera',
+        'Panoramic Glass Roof dengan Electric Sunshade',
+        'Wireless Charging 50W',
+        'NFC Digital Key',
         'V2L (Vehicle to Load)',
-        'Heat Pump System',
-        'Adaptive Cruise Control',
-        'Lane Keep Assist',
-        'Blind Spot Detection',
-        'Third Row Seating',
-        'Power Tailgate'
+        'e-Platform 3.0 Evo with CTB Technology',
+        'Power Tailgate',
+        'Full ADAS + Adaptive Cruise Control'
       ]
     },
     'byd-m6': {
-      engine: 'Electric Motor',
-      power: '100 kW (134 HP)',
-      torque: '250 Nm',
-      battery: '71.7 kWh',
-      range: '500 km',
-      charging: 'DC Fast Charge: 0-80% dalam 35 menit',
-      acceleration: '0-100 km/h dalam 9.5 detik',
-      topSpeed: '150 km/h',
-      dimensions: '4,820 x 1,837 x 1,650 mm',
-      weight: '2,050 kg',
-      seats: '7',
+      engine: 'Permanent Magnet Synchronous Motor (FWD)',
+      power: '120 - 150 kW (163 - 204 PS)',
+      torque: '310 Nm',
+      battery: '55.4 - 71.8 kWh BYD Blade Battery',
+      range: '420 - 530 km (NEDC)',
+      charging: 'DC Fast Charge 89-115 kW: 10-80% dalam 40 menit',
+      acceleration: '0-100 km/h dalam 8.6 - 10.1 detik',
+      topSpeed: '180 km/h',
+      dimensions: '4,710 x 1,810 x 1,690 mm',
+      weight: '1,800 - 1,900 kg',
+      seats: '6 - 7',
       features: [
-        '12.8" Touchscreen',
-        '8 Speaker Audio System',
-        '360° Camera',
+        '12.8" Rotating Touchscreen with Apple CarPlay/Android Auto',
+        '360° Panoramic View Monitor',
         'Keyless Entry & Start',
-        'LED Headlights',
-        'Panoramic Sunroof',
-        'Wireless Charging',
-        'USB Charging Ports',
-        'Third Row Seating',
-        'Power Sliding Doors',
-        'Power Tailgate'
+        'LED Headlights & Full-width Tail Light',
+        'Panoramic Glass Roof (Superior)',
+        'Wireless Phone Charger (Superior)',
+        'Ventilated Front Seats (Superior)',
+        'Captain Seat Row 2 (Superior Captain)',
+        'Power Tailgate',
+        'V2L (Vehicle to Load)'
       ]
     },
     'denza-d9': {
-      engine: 'Dual Electric Motors',
-      power: '275 kW (369 HP)',
-      torque: '500 Nm',
-      battery: '103.36 kWh',
-      range: '970 km',
-      charging: 'DC Fast Charge: 0-80% dalam 20 menit',
+      engine: 'Dual Electric Motors AWD (E-Platform)',
+      power: '275 - 390 kW (369 - 523 HP)',
+      torque: '500 - 700 Nm',
+      battery: '103.36 kWh BYD Blade Battery',
+      range: '600 - 620 km (NEDC) / 730 km (CLTC)',
+      charging: 'Dual-gun DC Super Fast Charge: 15 menit untuk 230 km',
       acceleration: '0-100 km/h dalam 4.9 detik',
-      topSpeed: '180 km/h',
+      topSpeed: '190 km/h',
       dimensions: '5,250 x 1,960 x 1,920 mm',
       weight: '2,650 kg',
       seats: '7',
       features: [
-        '17.3" Touchscreen',
-        'Dirac Premium Audio (14 Speakers)',
-        '360° Camera + Front Camera',
-        'Keyless Entry & Start',
-        'Matrix LED Headlights',
-        'Panoramic Glass Roof',
-        'Wireless Charging',
-        'NFC Key Card',
-        'V2L (Vehicle to Load)',
-        'Heat Pump System',
-        'Adaptive Cruise Control',
-        'Lane Keep Assist',
-        'Blind Spot Detection',
-        'Third Row Seating',
-        'Power Sliding Doors',
-        'Power Tailgate',
-        'Refrigerator',
-        'Massage Seats',
-        'Air Suspension'
+        '17.3" Central Control Touchscreen + Display Baris Kedua',
+        'Dynaudio 14 Speaker Premium Audio',
+        'Dual Power Sliding Doors',
+        'Executive Captain Seats dengan Massage & Ventilasi',
+        'Kulkas Pendingin/Pemanas Terintegrasi (Refrigerator)',
+        'Double Panoramic Sunroof',
+        'Tri-Zone Independent Climate Control',
+        'Level 2+ ADAS Intelligent Driving Assistance'
       ]
     }
   }
@@ -452,55 +439,114 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
     'byd-dolphin': {
       Dynamic: {
         specs: {
-          engine: 'Electric Motor',
-          power: '150 kW',
-          torque: '310 N.m',
-          battery: '60.48 kWh',
-          range: '490 km',
-          acceleration: '0-100 km/h dalam 7.0 s',
+          engine: 'Electric Motor (FWD)',
+          power: '70 kW (95 PS)',
+          torque: '180 N.m',
+          battery: '44.9 kWh BYD Blade',
+          range: '410 km (NEDC)',
+          acceleration: '0-100 km/h dalam 12.3 s',
           seats: '5'
         },
         features: [
-          'Upholstery Fabric',
-          '10.1" Rotating Touchscreen',
-          'Dirac Audio 6 Speaker',
-          'Keyless Entry',
-          'Reverse Camera'
+          'Fabric Upholstery',
+          '12.8" Rotating Touchscreen',
+          '6 Speaker Audio System',
+          'Keyless Entry & Start',
+          'Reverse Camera',
+          '16" Alloy Wheels'
         ]
       },
       Premium: {
         specs: {
-          engine: 'Electric Motor',
-          power: '150 kW',
+          engine: 'Electric Motor (FWD)',
+          power: '150 kW (204 PS)',
           torque: '310 N.m',
-          battery: '60.48 kWh',
-          range: '490 km',
+          battery: '60.48 kWh BYD Blade',
+          range: '490 km (NEDC)',
           acceleration: '0-100 km/h dalam 7.0 s',
           seats: '5'
         },
         features: [
-          'Leatherette Upholstery',
-          'Panoramic Sunroof',
-          'Dirac Audio 8 Speaker',
-          '360° Surround Camera',
-          'ADAS lengkap'
+          'Leatherette Upholstery & Multi-link Rear Suspension',
+          'Panoramic Glass Roof',
+          'Wireless Phone Charging',
+          '360° Surround View Camera',
+          'Full ADAS Safety Features',
+          '17" Alloy Wheels'
         ]
       }
     },
     'byd-atto-1': {
-      Dynamic: {
+      'Standard (300 KM)': {
         specs: {
-          engine: 'Electric Motor',
-          power: '55 kW',
-          torque: '315 N.m',
-          battery: '30.08 kWh',
-          range: '300 km',
-          acceleration: '0-100 km/h dalam 4.9 s',
+          engine: 'Electric Motor (FWD)',
+          power: '55 kW (75 PS)',
+          torque: '135 N.m',
+          battery: '30.08 kWh BYD Blade',
+          range: '300 km (NEDC)',
+          acceleration: '0-50 km/h dalam 4.9 s',
           seats: '5'
         },
         features: [
-          'Velg 16"',
-          'Head unit 10.1"',
+          'Velg 15" Alloy',
+          '10.1" Intelligent Touchscreen',
+          'Smart Key & Push Start',
+          'Rear Camera & 3 Parkir Radar',
+          'BYD DiLink OS',
+          '4 Airbags'
+        ]
+      },
+      'Dynamic (300 KM)': {
+        specs: {
+          engine: 'Electric Motor (FWD)',
+          power: '55 kW (75 PS)',
+          torque: '135 N.m',
+          battery: '30.08 kWh BYD Blade',
+          range: '300 km (NEDC)',
+          acceleration: '0-50 km/h dalam 4.9 s',
+          seats: '5'
+        },
+        features: [
+          'Velg 16" Alloy',
+          '10.1" Rotating Touchscreen',
+          '7" Digital Instrument Cluster',
+          'Smart Key & NFC Key Card',
+          '6 Airbags',
+          'Fast Charging 30 kW'
+        ]
+      },
+      'Premium (380 KM)': {
+        specs: {
+          engine: 'Electric Motor (FWD)',
+          power: '55 kW (75 PS)',
+          torque: '135 N.m',
+          battery: '38.88 kWh BYD Blade',
+          range: '380 km (NEDC)',
+          acceleration: '0-50 km/h dalam 4.9 s',
+          seats: '5'
+        },
+        features: [
+          'Velg 16" Premium Alloy',
+          '10.1" Rotating Touchscreen',
+          'Wireless Smartphone Charging',
+          'Electric Driver Seat Adjustment',
+          'Tilt & Telescopic Steering Column',
+          'Fast Charging 40 kW'
+        ]
+      },
+      Dynamic: {
+        specs: {
+          engine: 'Electric Motor (FWD)',
+          power: '55 kW (75 PS)',
+          torque: '135 N.m',
+          battery: '30.08 kWh BYD Blade',
+          range: '300 km (NEDC)',
+          acceleration: '0-50 km/h dalam 4.9 s',
+          seats: '5'
+        },
+        features: [
+          'Velg 16" Alloy',
+          '10.1" Rotating Touchscreen',
           'Smart Key',
           '6 Airbags',
           'BYD DiLink OS'
@@ -508,145 +554,207 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
       },
       Premium: {
         specs: {
-          engine: 'Electric Motor',
-          power: '55 kW',
-          torque: '690 N.m',
-          battery: '38.88 kWh',
-          range: '380 km',
-          acceleration: '0-100 km/h dalam 4.9 s',
+          engine: 'Electric Motor (FWD)',
+          power: '55 kW (75 PS)',
+          torque: '135 N.m',
+          battery: '38.88 kWh BYD Blade',
+          range: '380 km (NEDC)',
+          acceleration: '0-50 km/h dalam 4.9 s',
           seats: '5'
         },
         features: [
-          'Velg 17"',
-          'Head unit 12.8"',
-          'Panoramic Roof',
+          'Velg 16" Premium Alloy',
           'Wireless Charger',
-          'ADAS + Adaptive Cruise'
+          'Electric Seat',
+          'Tilt & Telescopic Steering',
+          '6 Airbags'
         ]
       }
     },
     'byd-atto-3': {
-      Advanced: {
+      'Advance Plus (410 KM)': {
         specs: {
-          engine: 'Electric Motor',
-          power: '130 kW',
+          engine: 'Electric Motor (FWD)',
+          power: '150 kW (204 PS)',
           torque: '310 N.m',
-          battery: '60.48 kWh',
-          range: '486 km',
-          acceleration: '0-100 km/h dalam 7.3 s',
+          battery: '49.92 kWh BYD Blade',
+          range: '410 km (NEDC)',
+          acceleration: '0-100 km/h dalam 7.9 s',
           seats: '5'
         },
         features: [
-          '12.8" Rotating Screen',
+          '12.8" Rotating Touchscreen',
+          'Dirac Audio System',
+          '360° Camera',
+          'Electric Driver Seat',
+          '17" Alloy Wheels',
+          'Panoramic Sunroof',
+          'V2L (Vehicle to Load)'
+        ]
+      },
+      Advanced: {
+        specs: {
+          engine: 'Electric Motor (FWD)',
+          power: '150 kW (204 PS)',
+          torque: '310 N.m',
+          battery: '49.92 kWh BYD Blade',
+          range: '410 km (NEDC)',
+          acceleration: '0-100 km/h dalam 7.9 s',
+          seats: '5'
+        },
+        features: [
+          '12.8" Rotating Touchscreen',
           'Dirac Audio',
           'ADAS Basic',
           'Electric Seat Driver',
-          '18" Alloy Wheels'
+          '17" Alloy Wheels'
         ]
       },
       Superior: {
         specs: {
-          engine: 'Electric Motor',
-          power: '130 kW',
+          engine: 'Electric Motor (FWD)',
+          power: '150 kW (204 PS)',
           torque: '310 N.m',
-          battery: '60.48 kWh',
-          range: '486 km',
+          battery: '60.48 kWh BYD Blade (Extended Range)',
+          range: '480 km (NEDC)',
           acceleration: '0-100 km/h dalam 7.3 s',
           seats: '5'
         },
         features: [
           '15.6" Rotating Screen',
-          'Dirac Premium Audio',
-          'Full ADAS + Adaptive Cruise',
-          'Heated Seats',
-          'Panoramic Roof'
+          'Dirac 8 Speaker Premium Audio',
+          'Full ADAS + Adaptive Cruise Control',
+          'Panoramic Sunroof',
+          '18" Dynamic Alloy Wheels',
+          'Multi-color Ambient Lighting'
         ]
       }
     },
     'byd-seal': {
-      Premium: {
+      'Premium (650 KM)': {
         specs: {
-          engine: 'Electric Motor',
-          power: '230 kW',
+          engine: 'Electric Motor (RWD)',
+          power: '230 kW (313 PS)',
           torque: '360 N.m',
-          battery: '82.56 kWh',
-          range: '650 km',
+          battery: '82.56 kWh BYD Blade',
+          range: '650 km (NEDC)',
           acceleration: '0-100 km/h dalam 5.9 s',
           seats: '5'
         },
         features: [
-          '15.6" Rotating Screen',
-          'Dirac Premium Audio',
-          'Adaptive Cruise',
-          'Head-up Display',
-          'Ventilated Seats'
+          '15.6" Rotating Touchscreen',
+          'Dynaudio 12 Speaker Audio',
+          'Panoramic Glass Roof',
+          'Head-up Display (HUD)',
+          'Ventilated & Heated Leather Seats',
+          'Full Level 2 ADAS Safety Suite'
+        ]
+      },
+      Premium: {
+        specs: {
+          engine: 'Electric Motor (RWD)',
+          power: '230 kW (313 PS)',
+          torque: '360 N.m',
+          battery: '82.56 kWh BYD Blade',
+          range: '650 km (NEDC)',
+          acceleration: '0-100 km/h dalam 5.9 s',
+          seats: '5'
+        },
+        features: [
+          '15.6" Rotating Touchscreen',
+          'Dynaudio 12 Speaker Audio',
+          'Panoramic Glass Roof',
+          'Head-up Display (HUD)',
+          'Ventilated & Heated Leather Seats',
+          'Full Level 2 ADAS Safety Suite'
         ]
       },
       Performance: {
         specs: {
-          engine: 'Dual Electric Motors',
-          power: '390 kW',
+          engine: 'Dual Electric Motors (AWD)',
+          power: '390 kW (530 PS)',
           torque: '670 N.m',
-          battery: '82.56 kWh',
-          range: '580 km',
+          battery: '82.56 kWh BYD Blade',
+          range: '580 km (NEDC)',
           acceleration: '0-100 km/h dalam 3.8 s',
           seats: '5'
         },
         features: [
-          'e-Platform 3.0',
-          'All Wheel Drive',
-          'Brembo Brakes',
-          'Launch Control',
-          'Heat Pump'
+          'e-Platform 3.0 CTB (Cell-to-Body)',
+          'All Wheel Drive with iTAC',
+          'Frequency Selective Damping (FSD)',
+          'Electronic Child Lock & Brembo Brakes',
+          'Launch Control & Head-up Display'
         ]
       }
     },
     'byd-sealion-7': {
-      Premium: {
+      'Premium (650 KM)': {
         specs: {
-          engine: 'Electric Motor',
-          power: '230 kW',
-          torque: '390 N.m',
-          battery: '82.56 kWh',
-          range: '567 km',
+          engine: 'Electric Motor (RWD)',
+          power: '230 kW (313 PS)',
+          torque: '380 N.m',
+          battery: '82.56 kWh BYD Blade',
+          range: '567 km (WLTP) / 650 km (NEDC)',
           acceleration: '0-100 km/h dalam 6.7 s',
-          seats: '7'
+          seats: '5'
         },
         features: [
-          '15.6" Screen',
-          'Dirac 12 Speaker',
-          'Electric Captain Seat',
-          'Panoramic Sunroof',
-          'ADAS lengkap'
+          '15.6" Rotating Touchscreen',
+          'Dynaudio 12 Speaker Audio',
+          'Electric Front Seats with Heating & Ventilation',
+          'Panoramic Glass Roof with Electric Sunshade',
+          'Power Tailgate',
+          'Full ADAS Safety System'
+        ]
+      },
+      Premium: {
+        specs: {
+          engine: 'Electric Motor (RWD)',
+          power: '230 kW (313 PS)',
+          torque: '380 N.m',
+          battery: '82.56 kWh BYD Blade',
+          range: '567 km (WLTP) / 650 km (NEDC)',
+          acceleration: '0-100 km/h dalam 6.7 s',
+          seats: '5'
+        },
+        features: [
+          '15.6" Rotating Touchscreen',
+          'Dynaudio 12 Speaker Audio',
+          'Electric Front Seats with Heating & Ventilation',
+          'Panoramic Glass Roof with Electric Sunshade',
+          'Power Tailgate',
+          'Full ADAS Safety System'
         ]
       },
       Performance: {
         specs: {
-          engine: 'Dual Electric Motors',
-          power: '390 kW',
+          engine: 'Dual Electric Motors (AWD)',
+          power: '390 kW (530 PS)',
           torque: '690 N.m',
-          battery: '82.56 kWh',
-          range: '542 km',
+          battery: '82.56 kWh BYD Blade',
+          range: '542 km (WLTP) / 610 km (NEDC)',
           acceleration: '0-100 km/h dalam 4.5 s',
-          seats: '7'
+          seats: '5'
         },
         features: [
-          'Electronic Air Suspension',
-          'Massage Seat',
-          'Rear Entertainment',
-          'Power Tailgate',
-          'Enhanced Traction Control'
+          'e-Platform 3.0 Evo with CTB Technology',
+          'Intelligent Torque Adaptation Control (iTAC)',
+          'Frequency Selective Damping (FSD)',
+          'Nappa Leather Seats with Massage Function',
+          'Head-up Display (HUD)',
+          'Power Tailgate with Foot Sensor'
         ]
       }
     },
     'byd-m6': {
-      Standard: {
+      'Standard (420 KM)': {
         specs: {
-          engine: 'Electric Motor',
+          engine: 'Electric Motor (FWD)',
           power: '120 kW (163 PS)',
           torque: '310 N.m',
-          battery: '55.4 kWh',
-          range: '420 km',
+          battery: '55.4 kWh BYD Blade',
+          range: '420 km (NEDC)',
           acceleration: '0-100 km/h dalam 10.1 s',
           dimensions: '4.710 × 1.810 × 1.690 mm',
           wheelbase: '2.800 mm',
@@ -655,21 +763,45 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
           seats: '7'
         },
         features: [
-          'Sliding Door Manual',
-          '12.8" Touchscreen',
-          '6 Speaker',
+          '12.8" Rotating Touchscreen with Apple CarPlay/Android Auto',
+          '6 Speaker Audio System',
           'Fabric Seat',
-          'Rear AC Control'
+          'Rear AC Digital Control',
+          'Reverse Camera & Parking Sensors',
+          'LED Headlights & DRL'
+        ]
+      },
+      Standard: {
+        specs: {
+          engine: 'Electric Motor (FWD)',
+          power: '120 kW (163 PS)',
+          torque: '310 N.m',
+          battery: '55.4 kWh BYD Blade',
+          range: '420 km (NEDC)',
+          acceleration: '0-100 km/h dalam 10.1 s',
+          dimensions: '4.710 × 1.810 × 1.690 mm',
+          wheelbase: '2.800 mm',
+          groundClearance: '170 mm',
+          batteryType: 'LFP BYD Blade (NEDC)',
+          seats: '7'
+        },
+        features: [
+          '12.8" Rotating Touchscreen with Apple CarPlay/Android Auto',
+          '6 Speaker Audio System',
+          'Fabric Seat',
+          'Rear AC Digital Control',
+          'Reverse Camera & Parking Sensors',
+          'LED Headlights & DRL'
         ]
       },
       Superior: {
         specs: {
-          engine: 'Electric Motor',
-          power: '120 kW (163 PS)',
+          engine: 'Electric Motor (FWD)',
+          power: '150 kW (204 PS)',
           torque: '310 N.m',
-          battery: '55.4 kWh',
-          range: '420 km',
-          acceleration: '0-100 km/h dalam 10.1 s',
+          battery: '71.8 kWh BYD Blade (Extended Range)',
+          range: '530 km (NEDC)',
+          acceleration: '0-100 km/h dalam 8.6 s',
           dimensions: '4.710 × 1.810 × 1.690 mm',
           wheelbase: '2.800 mm',
           groundClearance: '170 mm',
@@ -677,22 +809,23 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
           seats: '7'
         },
         features: [
-          'Power Sliding Door',
-          'Leather Seat',
-          'Surround Camera',
-          'Captain Seat Row 2',
-          'Wireless Charger'
+          'Panoramic Glass Roof dengan Sunshade',
+          'Leatherette Upholstery',
+          '360° Panoramic View Camera',
+          'Wireless Smartphone Charger',
+          'Ventilated Front Seats',
+          'Power Tailgate'
         ]
       },
-      'Superior Captain': {
+      'Superior Captain Seat (530 KM)': {
         contactWhatsApp: true,
         specs: {
-          engine: 'Electric Motor',
-          power: '120 kW (163 PS)',
+          engine: 'Electric Motor (FWD)',
+          power: '150 kW (204 PS)',
           torque: '310 N.m',
-          battery: '55.4 kWh',
-          range: '420 km',
-          acceleration: '0-100 km/h dalam 10.1 s',
+          battery: '71.8 kWh BYD Blade (Extended Range)',
+          range: '530 km (NEDC)',
+          acceleration: '0-100 km/h dalam 8.6 s',
           dimensions: '4.710 × 1.810 × 1.690 mm',
           wheelbase: '2.800 mm',
           groundClearance: '170 mm',
@@ -700,15 +833,58 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
           seats: '6'
         },
         features: [
-          'Individual Captain Seat',
-          'Ottoman Leg Rest',
-          'Ambient Light',
-          'Premium Audio',
-          'Panoramic Roof'
+          'Individual Captain Seat Baris ke-2 dengan Armrest',
+          'Panoramic Glass Roof',
+          'Wireless Smartphone Charger',
+          'Ventilated Front Seats & Power Tailgate',
+          '360° Panoramic View Camera',
+          'V2L (Vehicle to Load)'
+        ]
+      },
+      'Superior Captain': {
+        contactWhatsApp: true,
+        specs: {
+          engine: 'Electric Motor (FWD)',
+          power: '150 kW (204 PS)',
+          torque: '310 N.m',
+          battery: '71.8 kWh BYD Blade (Extended Range)',
+          range: '530 km (NEDC)',
+          acceleration: '0-100 km/h dalam 8.6 s',
+          dimensions: '4.710 × 1.810 × 1.690 mm',
+          wheelbase: '2.800 mm',
+          groundClearance: '170 mm',
+          batteryType: 'LFP BYD Blade (NEDC)',
+          seats: '6'
+        },
+        features: [
+          'Individual Captain Seat Baris ke-2 dengan Armrest',
+          'Panoramic Glass Roof',
+          'Wireless Smartphone Charger',
+          'Ventilated Front Seats & Power Tailgate',
+          '360° Panoramic View Camera',
+          'V2L (Vehicle to Load)'
         ]
       }
     },
     'denza-d9': {
+      'New D9 (730 KM)': {
+        specs: {
+          engine: 'Dual Motor AWD (Electric)',
+          power: '275 kW (369 HP)',
+          torque: '500 Nm',
+          battery: '103.36 kWh BYD Blade',
+          range: '620 km (NEDC) / 730 km (CLTC)',
+          seats: '7'
+        },
+        features: [
+          'Dual Power Sliding Doors',
+          '17.3" Touchscreen + Display Baris Kedua',
+          'Dynaudio 14 Speaker Audio',
+          'Executive Captain Seat dengan Massage & Ventilasi',
+          'Integrated Refrigerator (Pendingin & Pemanas)',
+          'Double Panoramic Sunroof'
+        ]
+      },
       Comfort: {
         specs: {
           engine: 'Dual Motor AWD',
@@ -759,12 +935,49 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
           'Smart Glass Partition',
           'Level 2+ ADAS'
         ]
+      },
+      Z9GT: {
+        contactWhatsApp: true,
+        specs: {
+          engine: 'Tri-Motor AWD (e4 Platform)',
+          power: '710 kW (965 HP)',
+          torque: '1,000+ Nm',
+          battery: '100.1 kWh BYD Blade',
+          range: '630 km (CLTC)',
+          seats: '5'
+        },
+        features: [
+          'e4 Platform with Independent 3-Motor Drive',
+          'Compass Rear-Wheel Steering & Crab Walk',
+          'Carbon Ceramic High-Performance Brakes',
+          'Air Suspension & Active Aerodynamic Rear Wing',
+          'Devialet Luxury Audio System'
+        ]
       }
     }
   }
 
-  const selectedClassDetails =
-    classDetails[car.id]?.[selectedClass?.name || ''] || null
+  const getSelectedClassDetails = () => {
+    if (!car || !car.id) return null
+    const carClasses = classDetails[car.id]
+    if (!carClasses) return null
+    const targetName = selectedClass?.name || ''
+    if (carClasses[targetName]) return carClasses[targetName]
+
+    // Fallback: match by prefix or substring
+    for (const [key, details] of Object.entries(carClasses)) {
+      if (
+        targetName.toLowerCase().includes(key.toLowerCase()) ||
+        key.toLowerCase().includes(targetName.toLowerCase())
+      ) {
+        return details
+      }
+    }
+    const firstVal = Object.values(carClasses)[0]
+    return firstVal || null
+  }
+
+  const selectedClassDetails = getSelectedClassDetails()
 
   const specs = selectedClassDetails?.specs || specifications[car.id] || {}
   const featuresList = selectedClassDetails?.features || specifications[car.id]?.features || []

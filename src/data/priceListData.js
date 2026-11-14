@@ -15,8 +15,9 @@ export const priceListData = [
     id: 'byd-atto-1',
     name: 'BYD ATTO 1',
     classes: [
-      { name: 'Dynamic', price: 'RP 203.000.000' },
-      { name: 'Premium', price: 'RP 239.000.000' }
+      { name: 'Standard (300 KM)', price: 'RP 203.000.000' },
+      { name: 'Dynamic (300 KM)', price: 'RP 214.000.000' },
+      { name: 'Premium (380 KM)', price: 'RP 249.000.000' }
     ],
     defaultPrice: 'RP 203.000.000',
     image: '/images/BYDATTO1.jpg',
@@ -27,10 +28,10 @@ export const priceListData = [
     id: 'byd-atto-3',
     name: 'BYD ATTO 3',
     classes: [
-      { name: 'Advanced', price: 'RP 397.000.000' },
+      { name: 'Advance Plus (410 KM)', price: 'RP 422.000.000' },
       { name: 'Superior', price: 'RP 527.000.000' }
     ],
-    defaultPrice: 'RP 397.000.000',
+    defaultPrice: 'RP 422.000.000',
     image: '/images/atto3.jpg',
     description: 'BYD Atto 3 adalah SUV listrik kompak dengan desain modern dan teknologi terdepan.',
     brochure: '/brochures/FA_FLYER_ATTO 3_2025(AdvSTD-Superior).pdf'
@@ -39,10 +40,10 @@ export const priceListData = [
     id: 'byd-seal',
     name: 'BYD SEAL',
     classes: [
-      { name: 'Premium', price: 'RP 646.000.000' },
+      { name: 'Premium (650 KM)', price: 'RP 876.000.000' },
       { name: 'Performance', price: 'RP 757.000.000' }
     ],
-    defaultPrice: 'RP 646.000.000',
+    defaultPrice: 'RP 876.000.000',
     image: '/images/seal.jpg',
     description: 'BYD Seal adalah sedan listrik premium dengan performa tinggi dan desain elegan.',
     brochure: '/brochures/FA_FLYER_SEAL_2025.pdf'
@@ -51,23 +52,23 @@ export const priceListData = [
     id: 'byd-sealion-7',
     name: 'BYD SEALION 7',
     classes: [
-      { name: 'Premium', price: 'RP 636.000.000' },
+      { name: 'Premium (650 KM)', price: 'RP 886.000.000' },
       { name: 'Performance', price: 'RP 726.000.000' }
     ],
-    defaultPrice: 'RP 636.000.000',
+    defaultPrice: 'RP 886.000.000',
     image: '/images/sealion7.jpg',
-    description: 'BYD Sealion 7 adalah SUV listrik 7-seater dengan ruang yang luas dan kenyamanan maksimal.',
+    description: 'BYD Sealion 7 adalah SUV listrik premium bergaya sporty coupe dengan performa tinggi, ruang kabin lapang, dan kenyamanan maksimal.',
     brochure: '/brochures/FA_BROCHURE_SEALION7_12-compressed_1.pdf'
   },
   {
     id: 'byd-m6',
-    name: 'BYD M6',
+    name: 'BYD M6 EV',
     classes: [
-      { name: 'Standard', price: 'RP 390.000.000' },
+      { name: 'Standard (420 KM)', price: 'RP 402.000.000' },
       { name: 'Superior', price: 'RP 430.000.000' },
-      { name: 'Superior Captain', price: 'RP 440.000.000', contactWhatsApp: true }
+      { name: 'Superior Captain Seat (530 KM)', price: 'RP 452.000.000', contactWhatsApp: true }
     ],
-    defaultPrice: 'RP 390.000.000',
+    defaultPrice: 'RP 402.000.000',
     image: '/images/m6.jpg',
     description: 'BYD M6 adalah MPV listrik yang ideal untuk keluarga dengan fitur lengkap dan efisien.',
     brochure: '/brochures/BROCHURE BYD M6.pdf'
@@ -76,11 +77,13 @@ export const priceListData = [
     id: 'denza-d9',
     name: 'DENZA D9',
     classes: [
+      { name: 'New D9 (730 KM)', price: 'RP 1.080.000.000' },
       { name: 'Comfort', price: 'RP 957.000.000', contactWhatsApp: true },
       { name: 'Premium', price: 'RP 1.050.000.000', contactWhatsApp: true },
-      { name: 'Luxury', price: 'RP 1.150.000.000', contactWhatsApp: true }
+      { name: 'Luxury', price: 'RP 1.150.000.000', contactWhatsApp: true },
+      { name: 'Z9GT', price: 'RP 2.250.000.000' }
     ],
-    defaultPrice: 'RP 950.000.000',
+    defaultPrice: 'RP 1.080.000.000',
     image: '/images/BYDDENZA.jpg',
     description: 'Denza D9 adalah MPV mewah dengan teknologi canggih dan kenyamanan premium untuk keluarga modern.',
     fullWidth: true,
