@@ -218,6 +218,8 @@ function About() {
                   <img
                     src="/images/companyprofile1.jpg"
                     alt="Company Profile 1"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       e.target.src = '/images/about.jpg'
@@ -234,6 +236,8 @@ function About() {
                   <img
                     src="/images/companyprofile2.jpg"
                     alt="Company Profile 2"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       e.target.src = '/images/about.jpg'

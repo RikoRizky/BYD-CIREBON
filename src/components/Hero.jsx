@@ -321,15 +321,24 @@ function Hero() {
     loopFunctionRef.current = loop
 
     const loadImages = async () => {
-      const promises = carouselData.map(({ image }) => {
-        return new Promise((resolve, reject) => {
+      // Prioritize the visible initial slides first, then stream the rest in the background
+      const initialSlides = carouselData.slice(0, 2).map(({ image }) => {
+        return new Promise((resolve) => {
           const img = new Image()
           img.onload = () => resolve(img)
-          img.onerror = reject
+          img.onerror = () => resolve(img)
           img.src = image
         })
       })
-      return Promise.all(promises)
+      await Promise.all(initialSlides)
+
+      // Background progressive load for subsequent carousel slides
+      setTimeout(() => {
+        carouselData.slice(2).forEach(({ image }) => {
+          const img = new Image()
+          img.src = image
+        })
+      }, 300)
     }
 
     const start = async () => {

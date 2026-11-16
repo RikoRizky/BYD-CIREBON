@@ -64,6 +64,8 @@ function PriceList() {
                   <img 
                     src={car.image} 
                     alt={car.name} 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/80" />
