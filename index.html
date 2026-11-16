@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/bydlogo.png" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/bydlogo.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BYD Cirebon — Dealer Resmi BYD di Kota Cirebon</title>
     <meta name="description" content="BYD Cirebon — Dealer resmi BYD di Kota Cirebon. Informasi lengkap tentang model BYD, harga, promo, dan layanan purna jual di Cirebon." />
     <meta name="keywords" content="BYD, BYD Cirebon, BYD Harmony, BYD Atto 3, BYD Atto1, BYD Seal, BYD Sealion 7, BYD Dolphin, mobil listrik Cirebon, mobil listrik Jawa Barat, dealer BYD Cirebon, showroom BYD Cirebon, harga BYD Cirebon, promo BYD Cirebon, test drive BYD, service BYD Cirebon, bengkel BYD, sparepart BYD, kredit BYD Cirebon, cicilan BYD, EV Cirebon, electric car Cirebon, kendaraan listrik Cirebon, mobil listrik murah Cirebon, BYD Indonesia, dealer mobil Cirebon, jual mobil listrik Cirebon, otomotif Cirebon, dealer mobil listrik, dealer EV, layanan purna jual BYD" />
     <link rel="canonical" href="https://bydcirebon.id/" />
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
     <meta name="google-site-verification" content="Nih2Wa6rGvyFZ0J1bndsJYPGXd_csBagcKp3JdeaweQ" />
+
+    <!-- Google Fonts Preconnect and Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Preload key LCP Hero image -->
+    <link rel="preload" as="image" href="/images/seal.jpg" fetchpriority="high" />
 
     <!-- Geo meta for local SEO -->
     <meta name="geo.region" content="ID-JB" />
@@ -42,34 +52,18 @@
     }
     </script>
 
-    <!-- Organization schema -->
+    <!-- Organization schema with Agentic Actions -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "BYD Cirebon",
+      "@type": "AutoDealer",
+      "name": "BYD Harmony Cirebon",
       "url": "https://bydcirebon.id/",
+      "logo": "https://bydcirebon.id/logobyd.png",
+      "image": "https://bydcirebon.id/images/seal.jpg",
+      "description": "Dealer resmi mobil listrik BYD di Kota Cirebon. Menyediakan unit BYD Dolphin, Atto 3, Seal, Sealion 7, Denza D9, dan M6.",
       "telephone": "+62 811-668-722",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Jl. DR. Cipto Mangunkusumo No. 115, Pekiringan",
-        "addressLocality": "Kesambi, Kota Cirebon",
-        "postalCode": "45131",
-        "addressRegion": "Jawa Barat",
-        "addressCountry": "ID"
-      }
-    }
-    </script>
-
-    <!-- Structured Data: Local Business -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AutomotiveBusiness",
-      "name": "BYD Cirebon",
-      "url": "https://bydcirebon.id/",
-      "description": "Dealer resmi BYD di Kota Cirebon. Informasi model BYD, harga, promo, dan layanan purna jual.",
-      "telephone": "+62 811-668-722",
+      "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jl. DR. Cipto Mangunkusumo No. 115, Pekiringan",
@@ -102,7 +96,31 @@
         "@type": "GeoCoordinates",
         "latitude": "-6.732000",
         "longitude": "108.552000"
-      }
+      },
+      "potentialAction": [
+        {
+          "@type": "ReserveAction",
+          "name": "Booking Test Drive BYD",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://bydcirebon.id/#contact",
+            "inLanguage": "id",
+            "actionPlatform": [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform"
+            ]
+          },
+          "result": {
+            "@type": "Reservation",
+            "name": "Jadwal Test Drive Mobil Listrik BYD"
+          }
+        },
+        {
+          "@type": "CommunicateAction",
+          "name": "Chat WhatsApp Sales Advisor",
+          "target": "https://wa.me/62811668722"
+        }
+      ]
     }
     </script>
   </head>
