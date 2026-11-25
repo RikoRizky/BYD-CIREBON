@@ -44,16 +44,14 @@ export const colorOptionsByCar = {
     { name: 'Harbour Grey', value: '#4e545c', imageKey: 'warna/BYD_DENZAD9/DenzaD9_Grey.png' }
   ],
   'byd-m6-dmi': [
-    { name: 'Harbour Grey', value: '#585c63', imageKey: 'https://commons.wikimedia.org/wiki/Special:FilePath/2024_BYD_M6_(front).jpg?width=1200' },
-    { name: 'Crystal White', value: '#f5f5f5', imageKey: 'https://commons.wikimedia.org/wiki/Special:FilePath/BYD_Song_Max_DM-i_001.jpg?width=1200' },
-    { name: 'Cosmos Black', value: '#101114', imageKey: 'https://commons.wikimedia.org/wiki/Special:FilePath/2024_BYD_M6_(rear).jpg?width=1200' },
-    { name: 'Quartz Blue', value: '#244569', imageKey: 'https://commons.wikimedia.org/wiki/Special:FilePath/BYD_Song_Max_facelift.jpg?width=1200' }
+    { name: 'Ski White', value: '#f5f5f5', imageKey: 'warna/BYD_M6_DM_High_Res/ski_white.webp' },
+    { name: 'Cosmos Black', value: '#101114', imageKey: 'warna/BYD_M6_DM_High_Res/cosmos_black.webp' },
+    { name: 'Harbour Grey', value: '#585c63', imageKey: 'warna/BYD_M6_DM_High_Res/harbor_grey.webp' }
   ],
   'denza-z9gt': [
-    { name: 'Fjord Green', value: '#2d473d', imageKey: 'https://commons.wikimedia.org/wiki/Special:FilePath/2024_Denza_Z9_GT_(front).jpg?width=1200' },
-    { name: 'Snow White', value: '#f4f4f6', imageKey: 'https://commons.wikimedia.org/wiki/Special:FilePath/Denza_Z9_GT_001.jpg?width=1200' },
-    { name: 'Starlight Silver', value: '#9da3a8', imageKey: 'https://commons.wikimedia.org/wiki/Special:FilePath/Denza_Z9_GT_Auto_Zuerich_2025_DSC_3096.jpg?width=1200' },
-    { name: 'Obsidian Black', value: '#131417', imageKey: 'https://commons.wikimedia.org/wiki/Special:FilePath/2024_Denza_Z9_GT_(rear).jpg?width=1200' }
+    { name: 'Snow White', value: '#f4f4f6', imageKey: 'warna/Denza_Z9_GT_Web_Ringan_4K/Z9_GT_White_4K.webp' },
+    { name: 'Obsidian Black', value: '#131417', imageKey: 'warna/Denza_Z9_GT_Web_Ringan_4K/Z9_GT_Black_4K.webp' },
+    { name: 'Whale Sea Blue', value: '#215c92', imageKey: 'warna/Denza_Z9_GT_Web_Ringan_4K/Z9_GT_Blue_4K.webp' }
   ]
 }
 
@@ -125,19 +123,15 @@ export const interiorImagesByCar = {
     '/warna/BYD_DENZAD9/DenzaD9_Bagasi.jpg'
   ],
   'byd-m6-dmi': [
-    'https://commons.wikimedia.org/wiki/Special:FilePath/2024_BYD_M6_Superior_(Indonesia)_interior.jpg?width=1200',
-    'https://commons.wikimedia.org/wiki/Special:FilePath/2024_BYD_M6_(front).jpg?width=1200',
-    'https://commons.wikimedia.org/wiki/Special:FilePath/2024_BYD_M6_(rear).jpg?width=1200',
-    'https://commons.wikimedia.org/wiki/Special:FilePath/BYD_Song_Max_DM-i_001.jpg?width=1200',
-    'https://commons.wikimedia.org/wiki/Special:FilePath/BYD_Song_Max_facelift.jpg?width=1200'
+    '/warna/BYD_M6_DM_High_Res/M6_DM_Cockpit.jpg',
+    '/warna/BYD_M6_DM_High_Res/M6_DM.jpg',
+    '/warna/BYD_M6_DM_High_Res/M6_DM_Rear.jpg'
   ],
   'denza-z9gt': [
-    'https://commons.wikimedia.org/wiki/Special:FilePath/2025_Denza_Z9_GT_interior.png?width=1200',
-    'https://commons.wikimedia.org/wiki/Special:FilePath/2024_Denza_Z9_GT_(front).jpg?width=1200',
-    'https://commons.wikimedia.org/wiki/Special:FilePath/2024_Denza_Z9_GT_(rear).jpg?width=1200',
-    'https://commons.wikimedia.org/wiki/Special:FilePath/Denza_Z9_GT_Auto_Zuerich_2025_DSC_3096.jpg?width=1200',
-    'https://commons.wikimedia.org/wiki/Special:FilePath/Denza_Z9_GT_001.jpg?width=1200',
-    'https://commons.wikimedia.org/wiki/Special:FilePath/Denza_Z9_GT_IAA_2025_DSC_2034.jpg?width=1200'
+    '/warna/Denza_Z9_GT_Web_Ringan_4K/Z9_GT_Interior_4K.webp',
+    '/warna/Denza_Z9_GT_Web_Ringan_4K/Z9_GT_Front_4K.webp',
+    '/warna/Denza_Z9_GT_Web_Ringan_4K/Z9_GT_Rear_4K.webp',
+    '/warna/Denza_Z9_GT_Web_Ringan_4K/Z9_GT_Side_4K.webp'
   ]
 }
 
@@ -210,18 +204,14 @@ export const interiorDescriptions = {
     'Ruang bagasi yang luas dan elegan. Desain yang memperhatikan detail kemewahan.'
   ],
   'byd-m6-dmi': [
-    'Kokpit kabin modern dengan layar sentuh DiLink 12.8 inci rotating, setir kemudi ergonomis multifungsi, dan balutan material premium yang memberikan kenyamanan maksimal bagi seluruh keluarga.',
-    'Desain eksterior depan Aerodynamic Dragon Face dengan pencahayaan LED tajam dan grille modern yang memancarkan aura futuristik dan elegan.',
-    'Tampilan belakang proporsional dengan lampu LED horizontal memanjang (continuous taillight) serta bumper sporty yang dinamis.',
-    'Siluet MPV keluarga bertenaga hybrid Super DM-i dengan efisiensi konsumsi bahan bakar terbaik di kelasnya dan jarak tempuh kombinasi lebih dari 1.000 km.',
-    'Desain bodi aerodinamis dengan garis atap melandai dan ground clearance ideal untuk kenyamanan berkendara di berbagai kondisi jalan perkotaan.'
+    'Kokpit kabin modern BYD M6 DM-i dengan layar sentuh DiLink 12.8 inci rotating, setir multifungsi ergonomis, konsol tengah berkelas, dan balutan material premium yang memberikan kenyamanan berkendara maksimal.',
+    'Tampilan eksterior depan Aerodynamic Dragon Face dengan pencahayaan LED tajam dan grille beraksen krom elegan yang memancarkan karakter MPV tangguh dan futuristik.',
+    'Tampilan buritan belakang yang proporsional dan dinamis dengan continuous taillight LED memanjang penuh serta logo BYD yang modern dan berkelas.'
   ],
   'denza-z9gt': [
-    'Kokpit ultra-mewah "Denza 2.0" dengan konfigurasi Triple Screen (layar instrumen 13.2", layar sentuh sentral 17.3" 2.5K, dan layar hiburan penumpang 13.2"), tuas kristal, dan sound system teater Devialet 20-speaker.',
-    'Desain shooting-brake agresif terinspirasi dari siluet sutra mengalir, dilengkapi intake aerodinamis aktif, lampu depan dual-lens tajam, dan kamera samping digital.',
-    'Buritan dramatis dengan dual active rear spoiler, lampu belakang LED signature memanjang penuh, dan diffuser aerodinamis berteknologi tinggi.',
-    'Proporsi grand tourer shooting brake dengan velg aerodinamis 21 inci, rem performa tinggi kaliper multi-piston, dan suspensi udara adaptif CDC.',
-    'Desain elegan dengan ground clearance fleksibel berkat suspensi pintar e4, memberikan stabilitas tinggi saat melesat kencang hingga 240 km/jam.',
-    'Kabin belakang eksekutif dilengkapi kulkas pintar dual-mode ganda (-6°C hingga 50°C), kursi pijat zero-gravity berbalut Nappa leather, dan panoramic skyroof masif.'
+    'Kokpit ultra-mewah Denza Z9 GT berkonsep "Denza 2.0" dengan Triple Digital Screen, tuas transmisi kristal mewah, konsol futuristik, dan sistem audio premium Devialet 20-speaker.',
+    'Tampilan depan agresif terinspirasi dari siluet elegan yang mengalir, dilengkapi intake udara aerodinamis aktif, lampu depan dual-lens tajam, dan sensor ADAS terintegrasi.',
+    'Tampilan buritan dramatis berkarakter shooting brake dengan active dual rear spoiler, lampu belakang LED signature yang membentang lebar, serta diffuser sporty berteknologi tinggi.',
+    'Siluet samping shooting brake yang memukau dengan proporsi grand tourer, velg aerodinamis 21 inci, dan ground clearance adaptif berkat suspensi udara independen e4.'
   ]
 }

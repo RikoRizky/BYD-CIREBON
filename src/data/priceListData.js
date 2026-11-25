@@ -11,19 +11,19 @@ export const priceListData = [
       { name: 'Cross Superior Captain Seat', price: 'RP 398.800.000' }
     ],
     defaultPrice: 'RP 306.800.000',
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/2024_BYD_M6_(front).jpg?width=1200',
+    image: '/warna/BYD_M6_DM_High_Res/M6_DM.jpg',
     description: 'BYD M6 DM-i adalah MPV keluarga bertenaga hybrid Super DM-i (Dual Mode-intelligent) dengan efisiensi bahan bakar luar biasa dan kenyamanan premium.',
     brochure: '/brochures/BROCHURE BYD M6.pdf'
   },
   {
     id: 'denza-z9gt',
-    name: 'DANZA Z9GT',
+    name: 'DENZA Z9GT',
     isNew: true,
     classes: [
       { name: 'Z9GT', price: 'RP 2.250.000.000' }
     ],
     defaultPrice: 'RP 2.250.000.000',
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/2024_Denza_Z9_GT_(front).jpg?width=1200',
+    image: '/warna/Denza_Z9_GT_Web_Ringan_4K/Z9_GT_Front_4K.webp',
     description: 'Denza Z9GT adalah luxury shooting brake elektrik flagship dengan performa luar biasa, teknologi e4 tri-motor independen, dan kemewahan tingkat tinggi.',
     brochure: '/brochures/DENZA D9 eBrosure.pdf'
   },
