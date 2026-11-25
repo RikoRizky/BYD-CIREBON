@@ -300,7 +300,7 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
       topSpeed: '130 km/h',
       dimensions: '3,925 x 1,720 x 1,590 mm',
       weight: '1,225 - 1,280 kg',
-      seats: '5',
+      seats: '4',
       features: [
         '10.1" Rotating Touchscreen',
         '7" Digital Instrument Panel',
@@ -532,7 +532,7 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
           battery: '30.08 kWh BYD Blade',
           range: '300 km (NEDC)',
           acceleration: '0-50 km/h dalam 4.9 s',
-          seats: '5'
+          seats: '4'
         },
         features: [
           'Velg 15" Alloy',
@@ -551,7 +551,7 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
           battery: '30.08 kWh BYD Blade',
           range: '300 km (NEDC)',
           acceleration: '0-50 km/h dalam 4.9 s',
-          seats: '5'
+          seats: '4'
         },
         features: [
           'Velg 16" Alloy',
@@ -570,7 +570,7 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
           battery: '38.88 kWh BYD Blade',
           range: '380 km (NEDC)',
           acceleration: '0-50 km/h dalam 4.9 s',
-          seats: '5'
+          seats: '4'
         },
         features: [
           'Velg 16" Premium Alloy',
@@ -589,7 +589,7 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
           battery: '30.08 kWh BYD Blade',
           range: '300 km (NEDC)',
           acceleration: '0-50 km/h dalam 4.9 s',
-          seats: '5'
+          seats: '4'
         },
         features: [
           'Velg 16" Alloy',
@@ -607,7 +607,7 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
           battery: '38.88 kWh BYD Blade',
           range: '380 km (NEDC)',
           acceleration: '0-50 km/h dalam 4.9 s',
-          seats: '5'
+          seats: '4'
         },
         features: [
           'Velg 16" Premium Alloy',
@@ -1116,7 +1116,7 @@ const INTERIOR_RESUME_DELAY = INTERIOR_SLIDE_INTERVAL + 1000
 
   const selectedClassDetails = getSelectedClassDetails()
 
-  const specs = selectedClassDetails?.specs || specifications[car.id] || {}
+  const specs = { ...(specifications[car.id] || {}), ...(selectedClassDetails?.specs || {}) }
   const featuresList = selectedClassDetails?.features || specifications[car.id]?.features || []
   const needsWhatsAppContact = selectedClassDetails?.contactWhatsApp || selectedClass?.contactWhatsApp || false
 
