@@ -8,7 +8,7 @@ function Hero() {
   const detailsOddElementRef = useRef(null)
   const coverRef = useRef(null)
   const detailsEvenRef = useRef(true)
-  const orderRef = useRef([0, 1, 2, 3, 4, 5, 6])
+  const orderRef = useRef(carouselData.map((_, i) => i))
   const loopDelayRef = useRef(null)
   const coverTimeoutRef = useRef(null)
   const resizeTimeoutRef = useRef(null)

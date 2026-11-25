@@ -16,6 +16,20 @@ export const carouselData = [
   {
     place: 'BYD Harmony Cirebon',
     title: 'BYD',
+    title2: 'M6 DM-i',
+    description: 'BYD M6 DM-i: MPV keluarga modern bertenaga hybrid Super DM-i (Dual Mode-intelligent) dengan efisiensi bahan bakar luar biasa dan kenyamanan premium.',
+    image: '/images/m6-dmi.jpg'
+  },
+  {
+    place: 'BYD Harmony Cirebon',
+    title: 'BYD',
+    title2: 'DENZA Z9 GT',
+    description: 'DENZA Z9 GT: Luxury Shooting Brake elektrik flagship dengan performa luar biasa, teknologi e4 tri-motor independen, dan kemewahan tingkat tinggi.',
+    image: '/images/z9gt.jpg'
+  },
+  {
+    place: 'BYD Harmony Cirebon',
+    title: 'BYD',
     title2: 'SEALION 7',
     description: 'Eksplorasi Tak Terbatas dengan BYD SEALION. Perpaduan sempurna antara estetika modern, teknologi terkini, dan pengalaman berkendara premium yang tak tertandingi.',
     image: '/images/sealion7.jpg'
@@ -49,4 +63,3 @@ export const carouselData = [
     image: '/images/dolphin.jpg'
   },
 ];
-
